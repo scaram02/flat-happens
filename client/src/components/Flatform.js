@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
-export default class FlatForm extends Component {
+export default class Flatform extends Component {
   state = {
     name: "",
     weeklyTasks: [],
@@ -10,15 +10,18 @@ export default class FlatForm extends Component {
   };
 
   handleChange = event => {
-    const { name, weeklyTasks, user } = event.target;
-    this.setState({ [name]: value }, {[weeklyTasks]: value}, {[user]: value});
+    this.setState({
+      [event.target.name]: event.target.value,
+      [event.target.weeklyTasks]: event.target.value,
+      [event.target.user]: event.target.value
+    })
   };
 
   handleSubmit = event => {
     event.preventDefault();
 
     axios
-      .post("/api/flat", {
+      .post("/api/success", {
         name: this.state.name,
         weeklyTasks: this.state.weeklyTasks,
         user: this.props.user
@@ -57,3 +60,4 @@ export default class FlatForm extends Component {
     );
   }
 }
+
