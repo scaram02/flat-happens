@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Flatform from "./components/Flatform";
-import Invite from "./components/invite";
+import Invite from "./components/Invite";
 
 class App extends React.Component {
   state = {
