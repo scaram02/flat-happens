@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const weekSchema = new Schema({
   id: String,
   year: Number,
-  dateRange: String
+  week: Number, 
+  weekRange: String
 });
 
 const Week = mongoose.model("Week", weekSchema);
