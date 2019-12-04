@@ -40,7 +40,7 @@ class App extends React.Component {
         />
         <Route
           exact
-          path="/create-flat"
+          path="/invite"
           render={props => <Invite {...props} setUser={this.setUser} />}
         />
       </div>

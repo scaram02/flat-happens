@@ -91,8 +91,8 @@ app.use("/", index);
 const flatRoutes = require("./routes/flat");
 app.use("/api/flat", flatRoutes);
 
-// const taskRoutes = require("./routes/task");
-// app.use("/api/tasks", taskRoutes);
+const inviteRoutes = require("./routes/invite");
+app.use("/api/invite", inviteRoutes);
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
