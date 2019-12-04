@@ -88,8 +88,8 @@ app.locals.title = "WG APP";
 const index = require("./routes/index");
 app.use("/", index);
 
-// const projectRoutes = require("./routes/project");
-// app.use("/api/projects", projectRoutes);
+const flatRoutes = require("./routes/flat");
+app.use("/api/flat", flatRoutes);
 
 // const taskRoutes = require("./routes/task");
 // app.use("/api/tasks", taskRoutes);

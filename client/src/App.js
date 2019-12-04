@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Flatform from "./components/Flatform";
-import Success from "./components/Success";
+import Invite from "./components/invite";
 
 class App extends React.Component {
   state = {
@@ -41,7 +41,7 @@ class App extends React.Component {
         <Route
           exact
           path="/create-flat"
-          render={props => <Success {...props} setUser={this.setUser} />}
+          render={props => <Invite {...props} setUser={this.setUser} />}
         />
       </div>
     );

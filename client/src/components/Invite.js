@@ -1,7 +1,7 @@
 import React from "react";
 
-const Success = props => {
+const Invite = props => {
   return <div></div>;
 };
 
-export default Success;
+export default Invite;
