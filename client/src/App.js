@@ -22,8 +22,9 @@ class App extends React.Component {
 
   render() {
     return (
+      // ANDRE: How do we make sure that certain pages are not visible to non logged in members?
       <div className="App">
-        <Navbar user={this.state.user} clearUser={this.setUser} /> 
+        <Navbar user={this.state.user} clearUser={this.setUser} />
         <Route
           exact
           path="/signup"
@@ -47,10 +48,10 @@ class App extends React.Component {
         />
         <Route
           exact
-          path="/flat"
+          path="/dashboard"
           render={props => <Weekbar {...props} user={this.state.user} />}
         />
-         <Route
+        <Route
           exact
           path="/profile"
           render={props => <Profile {...props} user={this.state.user} />}

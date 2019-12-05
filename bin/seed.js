@@ -103,7 +103,7 @@ const Weeks = [
   { year: 2020, week: 50, weekRange: "07/12/2020 - 13/12/2020" },
   { year: 2020, week: 51, weekRange: "14/12/2020 - 20/12/2020" },
   { year: 2020, week: 52, weekRange: "21/12/2020 - 27/12/2020" },
-  { year: 2021, week: 53, weekRange: "28/12/2020 - 03/01/2021" },
+  { year: 2020, week: 53, weekRange: "28/12/2020 - 03/01/2021" },
   { year: 2021, week: 1, weekRange: "04/01/2021 - 10/01/2021" },
   { year: 2021, week: 2, weekRange: "11/01/2021 - 17/01/2021" },
   { year: 2021, week: 3, weekRange: "18/01/2021 - 24/01/2021" },

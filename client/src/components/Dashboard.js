@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Flatform from "./Flatform";
+import Weekbar from "./Weekbar";
 
 class Dashboard extends Component {
   state = {
@@ -37,7 +37,7 @@ class Dashboard extends Component {
   };
 
   getData = () => {
-    console.log("FUnction getData / Refresh data got called");
+    console.log("Function getData / Refresh data got called");
     axios
       .get("/api/create-flat")
       .then(response => {
@@ -59,7 +59,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="flat-container">
-        <Flatform refreshData={this.getData} />
+     <Weekbar />
+     <Flatmate />
+     <UnassignedTasks />
       </div>
     );
   }
