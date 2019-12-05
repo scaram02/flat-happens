@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const Flat = require("../models/Flat");
-const Task = require("../models/Task");
+// const Task = require("../models/Task");
 
 // GET /api/flats
-router.get("/", (req, res) => {
-  // return all flats
-  Flat.find({})
-    .populate("tasks")
-    .then(flats => {
-      res.json(flats);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
+// router.get("/", (req, res) => {
+//   // return all flats
+//   Flat.find({})
+//     .populate("flats") // flats???? was tasks
+//     .then(flats => {
+//       res.json(flats);
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
 
 const mongoose = require("mongoose");
 // GET /api/flats/:id
@@ -27,16 +27,16 @@ router.get("/:id", (req, res) => {
     return;
   }
 
-  Flat.findById(flatId)
-    .populate("tasks")
-    .then(flat => {
-      if (!flat) {
-        res.status(404).json({ message: "flat not found" });
-      } else res.json(flat);
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
+  // Flat.findById(flatId)
+  //   .populate("tasks")
+  //   .then(flat => {
+  //     if (!flat) {
+  //       res.status(404).json({ message: "flat not found" });
+  //     } else res.json(flat);
+  //   })
+  //   .catch(err => {
+  //     res.status(500).json(err);
+  //   });
 });
 
 // POST /api/flats
@@ -45,8 +45,8 @@ router.post("/", (req, res) => {
 
   Flat.create({
     name: req.body.name,
-    description: req.body.description,
-    owner: req.user._id
+    weeklyTasks: req.body.weeklyTasks,
+    user: req.user.id
   })
     .then(flat => {
       res.json(flat);
@@ -61,8 +61,8 @@ router.put("/:id", (req, res) => {
   Flat.findByIdAndUpdate(
     req.params.id,
     {
-      title: req.body.title,
-      description: req.body.description
+      name: req.body.name,
+      weeklyTasks: req.body.weeklyTasks
     },
     { new: true }
   )

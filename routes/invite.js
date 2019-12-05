@@ -42,7 +42,7 @@ router.get("/:id", (req, res) => {
 // POST /api/flats
 router.post("/", (req, res) => {
   // create 1 flat
-
+  console.log("helloooooo", req.body);
   Flat.create({
     name: req.body.name,
     description: req.body.description,
