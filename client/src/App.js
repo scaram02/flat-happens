@@ -23,7 +23,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* ANDRE How do show the navbar only on certain routes? */}
         <Navbar user={this.state.user} clearUser={this.setUser} /> 
         <Route
           exact
@@ -53,7 +52,7 @@ class App extends React.Component {
         />
          <Route
           exact
-          path="/flat"
+          path="/profile"
           render={props => <Profile {...props} user={this.state.user} />}
         />
       </div>
