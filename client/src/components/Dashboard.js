@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Flatform from "./Flatform";
 
-class Flat extends Component {
+class Dashboard extends Component {
   state = {
     name: "",
     weeklyTasks: [],
@@ -65,4 +65,4 @@ class Flat extends Component {
   }
 }
 
-export default Flat;
+export default Dashboard;

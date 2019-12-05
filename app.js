@@ -88,13 +88,20 @@ app.locals.title = "WG APP";
 const index = require("./routes/index");
 app.use("/", index);
 
-const flatRoutes = require("./routes/flat");
-app.use("/api/flat", flatRoutes);
+// rename flat route => dashboard route
+const dashboardRoutes = require("./routes/dashboard");
+app.use("/api/dashboard", dashboardRoutes);
 
 const inviteRoutes = require("./routes/invite");
 app.use("/api/invite", inviteRoutes);
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
+
+const createFlatRoutes = require("./routes/create-flat");
+app.use("/api/create-flat", createFlatRoutes);
+
+const profileRoutes = require("./routes/profile");
+app.use("/api/profile", profileRoutes);
 
 module.exports = app;

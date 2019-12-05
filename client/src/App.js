@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Flatform from "./components/Flatform";
 import Invite from "./components/Invite";
 import Weekbar from "./components/Weekbar";
+import Profile from "./components/Profile";
 
 class App extends React.Component {
   state = {
@@ -42,12 +43,17 @@ class App extends React.Component {
         <Route
           exact
           path="/invite/:id"
-          render={props => <Invite {...props} setUser={this.setUser} />}
+          render={props => <Invite {...props} user={this.state.user} />}
         />
         <Route
           exact
           path="/flat"
           render={props => <Weekbar {...props} user={this.state.user} />}
+        />
+         <Route
+          exact
+          path="/flat"
+          render={props => <Profile {...props} user={this.state.user} />}
         />
       </div>
     );
