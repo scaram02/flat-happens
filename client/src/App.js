@@ -6,6 +6,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Flatform from "./components/Flatform";
 import Invite from "./components/Invite";
+import Weekbar from "./components/Weekbar";
 
 class App extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class App extends React.Component {
           path="/login"
           render={props => <Login {...props} setUser={this.setUser} />}
         />
-         <Route
+        <Route
           exact
           path="/create-flat"
           render={props => <Flatform {...props} setUser={this.setUser} />}
@@ -42,6 +43,11 @@ class App extends React.Component {
           exact
           path="/invite"
           render={props => <Invite {...props} setUser={this.setUser} />}
+        />
+        <Route
+          exact
+          path="/flat"
+          render={props => <Weekbar {...props} user={this.state.user} />}
         />
       </div>
     );
