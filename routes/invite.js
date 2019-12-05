@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Flat = require("../models/Flat");
 const Task = require("../models/Task");
+const User = require("../models/User");
 
 // GET /api/flats
 router.get("/", (req, res) => {
@@ -46,10 +47,27 @@ router.post("/", (req, res) => {
   Flat.create({
     name: req.body.name,
     description: req.body.description,
-    owner: req.user._id
+    user: [req.user._id]
   })
     .then(flat => {
-      res.json(flat);
+      User.findByIdAndUpdate(req.user._id, { flat: flat._id }, { new: true })
+        .populate("flat")
+        .then(updatedData => {
+          console.log(updatedData);
+          res.json(updatedData);
+        });
+      // Flat.findByIdAndUpdate(
+      //   flat._id,
+      //   { $push: { user: req.user._id } },
+      //   { new: true }
+      // )
+      //   .populate("user")
+      //   .then(updatedData => {
+      //     console.log(updatedData);
+      //     res.json(updatedData);
+      //   });
+      // console.log(flat);
+      // res.json(flat);
     })
     .catch(err => {
       res.status(500).json(err);
