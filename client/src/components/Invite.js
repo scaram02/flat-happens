@@ -1,7 +1,8 @@
 import React from "react";
 
 const Invite = props => {
-  return <div></div>;
+  console.log(props);
+  return <div>Hey Pavlitsa, Danilo, Amelitsa</div>;
 };
 
 export default Invite;
