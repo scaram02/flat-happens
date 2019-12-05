@@ -2,11 +2,25 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
+const Checkbox = props => <input type="checkbox" {...props} />;
+
 export default class Flatform extends Component {
   state = {
     name: "",
     weeklyTasks: [],
-    user: []
+    user: [],
+    checkedOne: false,
+    checkedTwo: false
+  };
+
+  handleCheckboxOneChange = event => {
+    console.log("here you have multiple things checked", event.target.checked);
+    this.setState({ checkedOne: event.target.checked });
+  };
+
+  handleCheckboxTwoChange = event => {
+    console.log("here you have multiple things checked", event.target.checked);
+    this.setState({ checkedTwo: event.target.checked });
   };
 
   handleChange = event => {
@@ -51,42 +65,22 @@ export default class Flatform extends Component {
             />
           </Form.Group>
           <h2>Choose your weekly tasks:</h2>
-          <Form.Group>
-            <Form.Label>Bathroom cleaning</Form.Label>
-            <Form.Control
-              type="checkbox"
-              name="weeklyTasks"
-              value={this.state.weeklyTasks}
-              onChange={this.handleChange}
+          <label>
+            <Checkbox
+              checked={this.state.checkedOne}
+              onChange={this.handleCheckboxOneChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Kitchen cleaning</Form.Label>
-            <Form.Control
-              type="checkbox"
-              name="weeklyTasks"
-              value={this.state.weeklyTasks}
-              onChange={this.handleChange}
+            <span>Clean the kitchen</span>
+          </label>
+
+          <label>
+            <Checkbox
+              checked={this.state.checkedTwo}
+              onChange={this.handleCheckboxTwoChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Taking down the trash</Form.Label>
-            <Form.Control
-              type="checkbox"
-              name="weeklyTasks"
-              value={this.state.weeklyTasks}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Toiletries shopping</Form.Label>
-            <Form.Control
-              type="checkbox"
-              name="weeklyTasks"
-              value={this.state.weeklyTasks}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
+            <span>Clean the bathroom</span>
+          </label>
+
           <Button type="submit">Create your flat!</Button>
         </Form>
       </div>
