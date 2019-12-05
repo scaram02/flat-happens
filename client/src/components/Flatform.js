@@ -53,7 +53,7 @@ export default class Flatform extends Component {
       })
       .then(flat => {
         // this.props.refreshData();
-        console.log(flat);
+        console.log("I WANT DATAAAA  ", flat);
         this.props.history.push(`/invite/${flat.data._id}`);
       })
       .catch(err => {

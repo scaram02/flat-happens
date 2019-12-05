@@ -6,6 +6,7 @@ const taskchema = new Schema({
   name: String,
   description: String,
   calendarWeek: Number,
+  weekNumber: Number,
   year: Number,
   flat: {
     type: Schema.Types.ObjectId,
