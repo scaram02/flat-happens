@@ -33,14 +33,14 @@ class App extends React.Component {
           path="/login"
           render={props => <Login {...props} setUser={this.setUser} />}
         />
-         <Route
+        <Route
           exact
           path="/create-flat"
-          render={props => <Flatform {...props} setUser={this.setUser} />}
+          render={props => <Flatform {...props} user={this.state.user} />}
         />
         <Route
           exact
-          path="/invite"
+          path="/invite/:id"
           render={props => <Invite {...props} setUser={this.setUser} />}
         />
       </div>

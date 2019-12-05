@@ -10,6 +10,7 @@ export default class Flatform extends Component {
   };
 
   handleChange = event => {
+    console.log(event.target.name, event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -17,20 +18,17 @@ export default class Flatform extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    console.log("FLATFORM ISSUBMITED. B A N A N A S");
     axios
       .post("/api/invite", {
         name: this.state.name,
         weeklyTasks: this.state.weeklyTasks,
         user: this.props.user
       })
-      .then(() => {
-        this.props.refreshData();
-        this.setState({
-          name: "",
-          weeklyTasks: [],
-          user: ""
-        });
+      .then(flat => {
+        // this.props.refreshData();
+        console.log(flat);
+        this.props.history.push(`/invite/${flat.data._id}`);
       })
       .catch(err => {
         console.log(err);
@@ -38,6 +36,7 @@ export default class Flatform extends Component {
   };
 
   render() {
+    console.log("flatform stuff is bananas", this.props);
     return (
       <div>
         <h2>Tell us about your flat </h2>
@@ -57,7 +56,7 @@ export default class Flatform extends Component {
             <Form.Control
               type="checkbox"
               name="weeklyTasks"
-              value={this.state.name}
+              value={this.state.weeklyTasks}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -66,7 +65,7 @@ export default class Flatform extends Component {
             <Form.Control
               type="checkbox"
               name="weeklyTasks"
-              value={this.state.name}
+              value={this.state.weeklyTasks}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -75,7 +74,7 @@ export default class Flatform extends Component {
             <Form.Control
               type="checkbox"
               name="weeklyTasks"
-              value={this.state.name}
+              value={this.state.weeklyTasks}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -84,7 +83,7 @@ export default class Flatform extends Component {
             <Form.Control
               type="checkbox"
               name="weeklyTasks"
-              value={this.state.name}
+              value={this.state.weeklyTasks}
               onChange={this.handleChange}
             />
           </Form.Group>

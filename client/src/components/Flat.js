@@ -4,7 +4,7 @@ import Flatform from "./Flatform";
 
 class Flat extends Component {
   state = {
-    name: '',
+    name: "",
     weeklyTasks: [],
     user: []
   };
@@ -18,23 +18,26 @@ class Flat extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    createFlat(this.state.name, this.state.weeklyTasks, this.state.user).then(data => {
-      if (data.message) {
-        // handle errors
-        this.setState({
-          error: data.message
-        });
-      } else {
-        // no error
-        // lift the data up to the App state
-        this.props.setUser(data);
-        // redirect to "/projects"
-        this.props.history.push("/invite");
+    createFlat(this.state.name, this.state.weeklyTasks, this.state.user).then(
+      data => {
+        if (data.message) {
+          // handle errors
+          this.setState({
+            error: data.message
+          });
+        } else {
+          // no error
+          // lift the data up to the App state
+          this.props.setUser(data);
+          // redirect to "/projects"
+          this.props.history.push("/invite");
+        }
       }
-    });
+    );
   };
 
   getData = () => {
+    console.log("FUnction getData / Refresh data got called");
     axios
       .get("/api/create-flat")
       .then(response => {
