@@ -217,7 +217,7 @@ mongoose.connect("mongodb://localhost/flatshare");
 
 Week.insertMany(Weeks)
   .then(documents => {
-    console.log(`Success ${documents.length} movies were added`);
+    console.log(`Success ${documents.length} weeks were added`);
     mongoose.connection.close();
   })
   .catch(err => {
