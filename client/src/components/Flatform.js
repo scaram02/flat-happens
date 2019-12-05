@@ -10,7 +10,9 @@ export default class Flatform extends Component {
     weeklyTasks: [],
     user: [],
     checkedOne: false,
-    checkedTwo: false
+    checkedTwo: false,
+    checkedThree: false,
+    checkedFour: false
   };
 
   handleCheckboxOneChange = event => {
@@ -21,6 +23,16 @@ export default class Flatform extends Component {
   handleCheckboxTwoChange = event => {
     console.log("here you have multiple things checked", event.target.checked);
     this.setState({ checkedTwo: event.target.checked });
+  };
+
+  handleCheckboxThreeChange = event => {
+    console.log("here you have multiple things checked", event.target.checked);
+    this.setState({ checkedThree: event.target.checked });
+  };
+
+  handleCheckboxFourChange = event => {
+    console.log("here you have multiple things checked", event.target.checked);
+    this.setState({ checkedFour: event.target.checked });
   };
 
   handleChange = event => {
@@ -79,6 +91,22 @@ export default class Flatform extends Component {
               onChange={this.handleCheckboxTwoChange}
             />
             <span>Clean the bathroom</span>
+          </label>
+
+          <label>
+            <Checkbox
+              checked={this.state.checkedThree}
+              onChange={this.handleCheckboxThreeChange}
+            />
+            <span>Grocery shopping</span>
+          </label>
+
+          <label>
+            <Checkbox
+              checked={this.state.checkedFour}
+              onChange={this.handleCheckboxFourChange}
+            />
+            <span>Buy toiletries</span>
           </label>
 
           <Button type="submit">Create your flat!</Button>
