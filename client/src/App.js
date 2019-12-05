@@ -22,7 +22,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar user={this.state.user} clearUser={this.setUser} />
+        {/* ANDRE How do show the navbar only on certain routes? */}
+        <Navbar user={this.state.user} clearUser={this.setUser} /> 
         <Route
           exact
           path="/signup"
