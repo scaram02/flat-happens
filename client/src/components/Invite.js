@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import axios from 'axios';
-
-
+import React, { Component, Link } from "react";
+import axios from "axios";
 
 export default class Invite extends Component {
-
   getData = () => {
-    console.log("Function getData / Refresh data got called Invite.js");
+    const flatId = this.props.match.params.id;
+
     axios
-      .get("/api/invite")
+      .get(`/api/invite/${flatId}`)
       .then(response => {
-        console.log(response)
+        console.log(response);
         // this.setState({
         //   name: response.data,
         //   weeklyTasks: response.data,
@@ -23,16 +21,19 @@ export default class Invite extends Component {
   };
 
   componentDidMount() {
+    console.log("MOUNTED");
     this.getData();
   }
-
 
   render() {
     return (
       <div>
         Your flat has been successfully created. You can invite your flatmates
         by sharing this link with them.
-      </div>
+        <p> signup/{this.props.match.params.id}</p>
+      {/* <Link to={"/dashboard"}>Dashboard</Link> */}
+      </div> 
+       
     );
   }
 }

@@ -5,9 +5,10 @@ const taskchema = new Schema({
   id: String,
   name: String,
   description: String,
-  calendarWeek: Number,
-  weekNumber: Number,
-  year: Number,
+  week: {
+    type: Schema.Types.ObjectId,
+    ref: "Week"
+  },
   flat: {
     type: Schema.Types.ObjectId,
     ref: "Flat"

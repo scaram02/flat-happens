@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { Navbar as Nav } from "react-bootstrap";
-import moment from "moment";
 import axios from "axios";
 
-var currentWeek = moment().format("W") * 1;
-var currentYear = moment().format("Y") * 1;
-
-console.log(typeof currentWeek);
-console.log(currentYear);
 
 class Weekbar extends Component {
   state = {
@@ -101,11 +95,9 @@ class Weekbar extends Component {
   };
 
   getData = () => {
-    console.log("Here?");
     axios
       .get("/api/dashboard")
       .then(response => {
-        console.log(response.data);
         this.setState({
           currentWeek: response.data.currentWeek.week,
           currentYear: response.data.currentWeek.year,
@@ -123,7 +115,6 @@ class Weekbar extends Component {
   }
 
   render() {
-    console.log("WHICH WEEK ARE WE IN???????", this.state.currentYear);
     return (
       <Nav className="nav" bg="basic">
         {this.props.user ? (

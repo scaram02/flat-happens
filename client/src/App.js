@@ -3,11 +3,13 @@ import "./App.css";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
+import SignupFlatmate from "./components/SignupFlatmate";
 import Login from "./components/Login";
 import Flatform from "./components/Flatform";
 import Invite from "./components/Invite";
 import Weekbar from "./components/Weekbar";
 import Profile from "./components/Profile";
+
 
 class App extends React.Component {
   state = {
@@ -30,6 +32,12 @@ class App extends React.Component {
           path="/signup"
           // component={Signup}
           render={props => <Signup {...props} setUser={this.setUser} />}
+        />
+        <Route
+          exact
+          path="/signup/:id"
+          // component={Signup}
+          render={props => <SignupFlatmate {...props} setUser={this.setUser} />}
         />
         <Route
           exact
