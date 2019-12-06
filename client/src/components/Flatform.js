@@ -34,7 +34,7 @@ export default class Flatform extends Component {
     event.preventDefault();
     console.log("FLATFORM ISSUBMITED. B A N A N A S");
     axios
-      .post("/api/invite", {
+      .post("/api/create-flat", {
         name: this.state.name,
         weeklyTasks: this.state.weeklyTasks,
         user: this.props.user
