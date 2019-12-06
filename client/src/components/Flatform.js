@@ -46,15 +46,15 @@ export default class Flatform extends Component {
     event.preventDefault();
     console.log("FLATFORM ISSUBMITED. B A N A N A S");
     axios
-      .post("/api/invite", {
+      .post("/api/create-flat", {
         name: this.state.name,
         weeklyTasks: this.state.weeklyTasks,
         user: this.props.user
       })
-      .then(flat => {
+      .then(updatedData => {
         // this.props.refreshData();
-        console.log("I WANT DATAAAA  ", flat);
-        this.props.history.push(`/invite/${flat.data._id}`);
+        console.log("I WANT DATAAAA  ", updatedData);
+        this.props.history.push(`/invite/${updatedData.data.flat._id}`);
       })
       .catch(err => {
         console.log(err);

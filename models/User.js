@@ -5,14 +5,6 @@ const userSchema = new Schema(
   {
     username: String,
     password: String,
-    flat: {
-      type: Schema.Types.ObjectId,
-      ref: "Flat"
-    },
-    task: {
-      type: Schema.Types.ObjectId,
-      ref: "Task"
-    }
   },
   {
     timestamps: true
