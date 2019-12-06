@@ -39,10 +39,10 @@ export default class Flatform extends Component {
         weeklyTasks: this.state.weeklyTasks,
         user: this.props.user
       })
-      .then(flat => {
+      .then(updatedData => {
         // this.props.refreshData();
-        console.log("I WANT DATAAAA  ", flat);
-        this.props.history.push(`/invite/${flat.data._id}`);
+        console.log("I WANT DATAAAA  ", updatedData);
+        this.props.history.push(`/invite/${updatedData.data.flat._id}`);
       })
       .catch(err => {
         console.log(err);

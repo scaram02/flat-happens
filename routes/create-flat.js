@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
       User.findByIdAndUpdate(req.user._id, { flat: flat._id }, { new: true })
         .populate("flat")
         .then(updatedData => {
-          console.log(updatedData);
+          console.log(updatedData.flat._id);
           res.json(updatedData);
         });
     })
