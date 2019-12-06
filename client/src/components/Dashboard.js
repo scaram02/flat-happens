@@ -59,9 +59,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="flat-container">
-     <Weekbar />
-     <Flatmate />
-     <UnassignedTasks />
+        <Weekbar />
+        <Flatmate />
+        <UnassignedTasks />
       </div>
     );
   }
