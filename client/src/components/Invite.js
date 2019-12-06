@@ -1,4 +1,4 @@
-import React, { Component, Link } from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 export default class Invite extends Component {
@@ -31,9 +31,7 @@ export default class Invite extends Component {
         Your flat has been successfully created. You can invite your flatmates
         by sharing this link with them.
         <p> signup/{this.props.match.params.id}</p>
-      {/* <Link to={"/dashboard"}>Dashboard</Link> */}
-      </div> 
-       
+      </div>
     );
   }
 }

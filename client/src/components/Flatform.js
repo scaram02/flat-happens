@@ -13,14 +13,21 @@ export default class Flatform extends Component {
     checkedTwo: false
   };
 
-  handleCheckboxOneChange = event => {
-    console.log("here you have multiple things checked", event.target.checked);
-    this.setState({ checkedOne: event.target.checked });
+  handleCheckboxOneChange = task => {
+    console.log("here you have multiple things checked", task);
+
+    this.setState({
+      checkedOne: !this.state.checkedOne,
+      weeklyTasks: this.state.weeklyTasks.concat(task)
+    });
   };
 
-  handleCheckboxTwoChange = event => {
-    console.log("here you have multiple things checked", event.target.checked);
-    this.setState({ checkedTwo: event.target.checked });
+  handleCheckboxTwoChange = task => {
+    console.log("here you have multiple things checked", task);
+    this.setState({
+      checkedTwo: !this.state.checkedTwo,
+      weeklyTasks: this.state.weeklyTasks.concat(task)
+    });
   };
 
   handleChange = event => {
@@ -32,7 +39,7 @@ export default class Flatform extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("FLATFORM ISSUBMITED. B A N A N A S");
+    console.log("FLATFORM IS SUBMITED. B A N A N A S");
     axios
       .post("/api/create-flat", {
         name: this.state.name,
@@ -41,8 +48,9 @@ export default class Flatform extends Component {
       })
       .then(updatedData => {
         // this.props.refreshData();
-        console.log("I WANT DATAAAA  ", updatedData);
-        this.props.history.push(`/invite/${updatedData.data.flat._id}`);
+        console.log("SHOW ME UPDATED DATAAAA", updatedData);
+
+        this.props.history.push(`/invite/${updatedData.data._id}`);
       })
       .catch(err => {
         console.log(err);
@@ -50,7 +58,7 @@ export default class Flatform extends Component {
   };
 
   render() {
-    console.log("flatform stuff is bananas", this.props);
+    // console.log("tHE FLATFORM IS WORKING", this.props);
     return (
       <div>
         <h2>Tell us about your flat </h2>
@@ -68,7 +76,7 @@ export default class Flatform extends Component {
           <label>
             <Checkbox
               checked={this.state.checkedOne}
-              onChange={this.handleCheckboxOneChange}
+              onChange={() => this.handleCheckboxOneChange("Clean the kitchen")}
             />
             <span>Clean the kitchen</span>
           </label>
@@ -76,7 +84,9 @@ export default class Flatform extends Component {
           <label>
             <Checkbox
               checked={this.state.checkedTwo}
-              onChange={this.handleCheckboxTwoChange}
+              onChange={() =>
+                this.handleCheckboxTwoChange("Clean the bathroom")
+              }
             />
             <span>Clean the bathroom</span>
           </label>
