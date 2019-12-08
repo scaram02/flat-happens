@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const taskchema = new Schema({
-  id: String,
+const taskSchema = new Schema({
+  // id: String,
   name: String,
-  description: String,
+  // description: String,
   week: {
     type: Schema.Types.ObjectId,
     ref: "Week"
@@ -21,5 +21,5 @@ const taskchema = new Schema({
   finished: Boolean
 });
 
-const Task = mongoose.model("Task", taskchema);
+const Task = mongoose.model("Task", taskSchema);
 module.exports = Task;

@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const flatSchema = new Schema({
-  id: String,
   name: String,
   user: [
     {
