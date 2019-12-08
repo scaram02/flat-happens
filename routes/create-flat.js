@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Flat = require("../models/Flat");
-const User = require("../models/User");
+// const User = require("../models/User");
 const Task = require("../models/Task");
 const Week = require("../models/Week");
 
@@ -24,8 +24,10 @@ router.post("/", (req, res) => {
         weeklyTasks.forEach(task => {
           console.log("LETS LOOK AT IT AGAIN, I DONT UNDERSTAND", task);
           Task.create({ name: task, week: week._id, flat: flat._id }).then(
-            () => {
-              console.log("SUcesss mauahahahhahahahahahaha");
+          // ANDRE: Is this how we are supposed to send tasks to the frontend?
+            tasks => {
+              console.log(tasks);
+              res.json(tasks)
             }
           );
         });

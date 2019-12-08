@@ -98,11 +98,13 @@ class Weekbar extends Component {
     axios
       .get("/api/dashboard")
       .then(response => {
+        console.log(response.data)
         this.setState({
           currentWeek: response.data.currentWeek.week,
           currentYear: response.data.currentWeek.year,
           weekRange: response.data.currentWeek.weekRange,
-          flatName: response.data.rest.flat.name
+          // ANDRE: Where is the flat data supposed to come from? Note for us: WE NEED A FLATNAME, otherwise there is not purpose in naming the flat. 
+          // flatName: response.data.rest.flat.name
         });
       })
       .catch(err => {
