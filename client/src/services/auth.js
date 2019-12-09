@@ -14,6 +14,21 @@ const signup = (username, password) => {
     });
 };
 
+// const signupFlatmate = (username, password) => {
+//   return axios
+//     .post("/api/auth/signup/:flatId", {
+//       username: username,
+//       password: password
+//     })
+//     .then(response => {
+//       return response.data;
+//     })
+//     .catch(err => {
+//       return err.response.data;
+//     });
+// };
+
+
 const login = (username, password) => {
   return axios
     .post("/api/auth/login", {
@@ -32,4 +47,4 @@ const logout = () => {
   axios.delete("/api/auth/logout");
 };
 
-export { signup, login, logout };
+export { signup, login, logout};

@@ -5,23 +5,36 @@ const Week = require("../models/Week");
 const mongoose = require("mongoose");
 const moment = require("moment");
 const User = require("../models/User");
-const Task = require("../models/Task")
+const Task = require("../models/Task");
 
 // GET the flat dashboard in the current week
 
 router.get("/", (req, res) => {
-  console.log("This is the real MVP");
+  // console.log("This is the real MVP", req.user);
   var currentWeek = moment().format("W") * 1;
   var currentYear = moment().format("Y") * 1;
   Week.find({ year: currentYear, week: currentWeek }).then(response => {
-    console.log(response);
-    User.findById(req.user._id)
-      .populate("flat")
-      .then(gotIt => {
-        console.log(response);
-        const bananas = { currentWeek: response[0], rest: gotIt };
-        res.json(bananas);
+    // console.log(response);
+    Flat.find({ user: { $in: [req.user.id] } }).then(flatArray => {
+      // console.log(flatArray);
+      Flat.findById(flatArray[0]._id).then(flat => {
+        // console.log(flat);
+        Task.find({ flat: flat._id })
+          .populate("flat")
+          .populate("week")
+          .then(allTasks => {
+            // console.log(allTasks);
+            res.json(allTasks[0]);  
+          });
       });
+    });
+
+    // User.findById(req.user._id).then(gotIt => {
+    //   // console.log("USER? ", gotIt);
+    //   const bananas = { currentWeek: response[0], rest: gotIt };
+    //   // console.log(bananas);
+    //   res.json(bananas);
+    // });
   });
 });
 
@@ -127,17 +140,17 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE /api/flats/:id
-router.delete("/:id", (req, res) => {
-  Flat.findByIdAndDelete(req.params.id)
-    .then(flat => {
-      // Deletes all the documents in the Task collection where the value for the `_id` field is present in the `flat.tasks` array
-      return Task.deleteMany({ _id: { $in: flat.tasks } }).then(() =>
-        res.json({ message: "ok" })
-      );
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-});
+// router.delete("/:id", (req, res) => {
+//   Flat.findByIdAndDelete(req.params.id)
+//     .then(flat => {
+//       // Deletes all the documents in the Task collection where the value for the `_id` field is present in the `flat.tasks` array
+//       return Task.deleteMany({ _id: { $in: flat.tasks } }).then(() =>
+//         res.json({ message: "ok" })
+//       );
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

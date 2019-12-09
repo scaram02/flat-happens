@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Navbar as Nav } from "react-bootstrap";
 import axios from "axios";
 
-
 class Weekbar extends Component {
   state = {
     // weeks: [],
@@ -95,21 +94,22 @@ class Weekbar extends Component {
   };
 
   getData = () => {
-    axios
-      .get("/api/dashboard")
-      .then(response => {
-        console.log(response.data)
-        this.setState({
-          currentWeek: response.data.currentWeek.week,
-          currentYear: response.data.currentWeek.year,
-          weekRange: response.data.currentWeek.weekRange,
-          // ANDRE: Where is the flat data supposed to come from? Note for us: WE NEED A FLATNAME, otherwise there is not purpose in naming the flat. 
-          // flatName: response.data.rest.flat.name
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // axios
+    console.log("Hello");
+    //   .get("/api/dashboard")
+    //   .then(response => {
+    //     console.log("HERE", response.data);
+    //     this.setState({
+    //       currentWeek: response.data.currentWeek.week,
+    //       currentYear: response.data.currentWeek.year,
+    //       weekRange: response.data.currentWeek.weekRange
+    //       // ANDRE: Where is the flat data supposed to come from? Note for us: WE NEED A FLATNAME, otherwise there is not purpose in naming the flat.
+    //       // flatName: response.data.rest.flat.name
+    //     });
+    // })
+    // .catch(err => {
+    //   console.log(err);
+    // });
   };
 
   componentDidMount() {
