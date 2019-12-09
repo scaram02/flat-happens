@@ -7,8 +7,8 @@ import SignupFlatmate from "./components/SignupFlatmate";
 import Login from "./components/Login";
 import Flatform from "./components/Flatform";
 import Invite from "./components/Invite";
-import Weekbar from "./components/Weekbar";
 import Profile from "./components/Profile";
+import Dashboard from "./components/Dashboard";
 
 
 class App extends React.Component {
@@ -57,7 +57,7 @@ class App extends React.Component {
         <Route
           exact
           path="/dashboard"
-          render={props => <Weekbar {...props} user={this.state.user} />}
+          render={props => <Dashboard {...props} user={this.state.user} />}
         />
         <Route
           exact

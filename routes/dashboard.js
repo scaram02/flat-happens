@@ -5,6 +5,7 @@ const Week = require("../models/Week");
 const mongoose = require("mongoose");
 const moment = require("moment");
 const User = require("../models/User");
+const Task = require("../models/Task")
 
 // GET the flat dashboard in the current week
 
@@ -24,20 +25,35 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:week/:year", (req, res) => {
-  console.log("This is the real MVP");
+// router.get("/:week/:year", (req, res) => {
+//   console.log("This is the real MVP");
 
-  Week.find({ year: req.params.year, week: req.params.week }).then(response => {
-    console.log(response);
-    User.findById(req.user._id)
-      .populate("flat")
-      .then(gotIt => {
-        console.log(response);
-        const bananas = { currentWeek: response[0], rest: gotIt };
-        res.json(bananas);
-      });
-  });
-});
+//   Week.find({ year: req.params.year, week: req.params.week }).then(response => {
+//     console.log(response);
+//     User.findById(req.user._id)
+//       .populate("flat")
+//       .then(gotIt => {
+//         console.log(response);
+//         const bananas = { currentWeek: response[0], rest: gotIt };
+//         res.json(bananas);
+//       });
+//   });
+// });
+
+// router.get("/:task", (req, res) => {
+//   console.log("hi task");
+
+//   Task.find({ task: req.params.task }).then(response => {
+//     console.log(response);
+//     User.findById(req.user._id)
+//       .populate("flat")
+//       .then(gotIt => {
+//         console.log(response);
+//         const bananas = { currentWeek: response[0], rest: gotIt };
+//         res.json(bananas);
+//       });
+//   });
+// });
 
 // router.get("/:weekId", (req, res) => {
 //   // return all flats
