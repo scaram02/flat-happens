@@ -7,8 +7,7 @@ class Weekbar extends Component {
     // weeks: [],
     currentWeek: "",
     currentYear: "",
-    weekRange: "",
-    flatName: ""
+    weekRange: ""
   };
 
   previousWeek = () => {
@@ -34,8 +33,6 @@ class Weekbar extends Component {
       this.state.currentYear === 2019 ||
       this.state.currentYear === 2021 ||
       this.state.currentYear === 2022;
-    console.log("THIS TRUE, THAT IM FEELING?", yearCheck);
-    console.log(this.state.currentWeek, !yearCheck);
     if (this.state.currentWeek === 52 && yearCheck) {
       this.setState(
         { currentWeek: 1, currentYear: this.state.currentYear + 1 },
@@ -45,7 +42,6 @@ class Weekbar extends Component {
               `/api/dashboard/${this.state.currentWeek}/${this.state.currentYear}`
             )
             .then(response => {
-              console.log(response.data);
               this.setState({
                 currentWeek: response.data.currentWeek.week,
                 currentYear: response.data.currentWeek.year,
@@ -64,7 +60,6 @@ class Weekbar extends Component {
               `/api/dashboard/${this.state.currentWeek}/${this.state.currentYear}`
             )
             .then(response => {
-              console.log(response.data);
               this.setState({
                 currentWeek: response.data.currentWeek.week,
                 currentYear: response.data.currentWeek.year,
@@ -81,7 +76,6 @@ class Weekbar extends Component {
             `/api/dashboard/${this.state.currentWeek}/${this.state.currentYear}`
           )
           .then(response => {
-            console.log(response.data);
             this.setState({
               currentWeek: response.data.currentWeek.week,
               currentYear: response.data.currentWeek.year,
@@ -95,7 +89,6 @@ class Weekbar extends Component {
 
   getData = () => {
     // axios
-    console.log("Hello");
     //   .get("/api/dashboard")
     //   .then(response => {
     //     console.log("HERE", response.data);
@@ -123,7 +116,7 @@ class Weekbar extends Component {
           <React.Fragment>
             {/* <Link to="/">Last Week</Link> */}
             <h2 onClick={this.previousWeek}>Last week</h2>
-            <h1>This week</h1>
+            <h1>This week {this.props.currentInfo.currentWeek}</h1>
             <h2 onClick={this.nextWeek}>Next Week</h2>
             {/* <Link to="/">Next Week</Link> */}
           </React.Fragment>
@@ -131,11 +124,11 @@ class Weekbar extends Component {
           <></>
         )}
         {this.state.currentWeek}
-        <h3>{this.state.currentYear}</h3>
+        <h3>{this.props.currentInfo.currentYear}</h3>
         <br />
-        <div>{this.state.weekRange}</div>
+        <div>{this.props.currentInfo.weekRange}</div>
         <h1>Ma flat</h1>
-        <div>{this.state.flatName}</div>
+        <div>{this.props.flatInfo.name}</div>
       </Nav>
     );
   }

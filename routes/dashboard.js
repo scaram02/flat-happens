@@ -13,17 +13,18 @@ router.get("/", (req, res) => {
   // console.log("This is the real MVP", req.user);
   var currentWeek = moment().format("W") * 1;
   var currentYear = moment().format("Y") * 1;
-  Week.find({ year: currentYear, week: currentWeek }).then(response => {
-    Flat.find({ user: { $in: [req.user.id] } }).then(flatArray => {
-      Task.find({ flat: flatArray[0]._id })
-        .populate({ path: "flat", populate: { path: "user" } })
-        .populate("week")
-        .then(allTasks => {
-          console.log(allTasks[0].flat);
-          res.json(allTasks[0]);
-        });
-      // });
-    });
+  // Week.find({ year: currentYear, week: currentWeek }).then(response => {
+  Flat.find({ user: { $in: [req.user.id] } }).then(flatArray => {
+    Task.find({ flat: flatArray[0]._id })
+      .populate({ path: "flat", populate: { path: "user" } })
+      .populate("week")
+      .then(allTasks => {
+        console.log(allTasks[0]);
+
+        res.json(allTasks);
+      });
+    // });
+    // });
 
     // User.findById(req.user._id).then(gotIt => {
     //   // console.log("USER? ", gotIt);
