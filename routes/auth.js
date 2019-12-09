@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const bcryptjs = require("bcryptjs");
+const Flat = require("../models/Flat");
 
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;
@@ -39,12 +40,11 @@ router.post("/signup", (req, res) => {
     });
 });
 
-
 router.post("/signup/:flatId", (req, res) => {
   const { username, password } = req.body;
-  const flatId = req.params._id;
+  const flatId = req.params.flatId;
 
-  console.log("IS this the flat ID we want?", flatId)
+  console.log("IS this the flat ID we want?", flatId);
 
   if (!username) {
     return res.status(400).json({ message: "Username can't be empty" });
@@ -68,32 +68,44 @@ router.post("/signup/:flatId", (req, res) => {
         })
         .then(newUser => {
           // passport login
+          console.log(newUser);
           req.login(newUser, err => {
             if (err) res.status(500).json(err);
             else res.json(newUser);
+            Flat.findByIdAndUpdate(
+              flatId,
+              { $push: { user: req.user._id } },
+              { new: true }
+            )
+              .populate("user")
+              .then(flatStuff => {
+                console.log(flatStuff);
+              });
           });
+          // req.login(newUser, err => {
+          //   if (err) res.status(500).json(err);
+          //   else res.json(newUser);
         });
     })
     .catch(err => {
       res.status(500).json(err);
     });
+});
 
-
-    // we would like to find the flat in our DB by using the flatId from the URL and push the signedup user into the user array
-    Flat.findByIdAndUpdate(
-      req.params.id,
-      // description: req.body.description,
-      { user: [req.user._id] }
-      // { "$push": { 'user': req.user._id } } ?? maybe this could WORK?
-    )
-      .then(flat => {
-        res.json(flat);
-      })
-      .catch(err => {
-        res.status(500).json(err);
-      });
-  });
-
+// we would like to find the flat in our DB by using the flatId from the URL and push the signedup user into the user array
+//   Flat.findByIdAndUpdate(
+//     req.params.id,
+//     // description: req.body.description,
+//     { user: [req.user._id] }
+//     // { "$push": { 'user': req.user._id } } ?? maybe this could WORK?
+//   )
+//     .then(flat => {
+//       res.json(flat);
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
 
 const passport = require("passport");
 

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { signup } from "../services/auth";
+import { referral } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
 
 class SignupFlatmate extends Component {
   state = {
     username: "",
     password: "",
+    flatId: this.props.match.params.flatId,
     error: ""
   };
 
@@ -18,20 +19,27 @@ class SignupFlatmate extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    signup(this.state.username, this.state.password).then(data => {
-      if (data.message) {
-        // handle errors
-        this.setState({
-          error: data.message
-        });
-      } else {
-        // no error
-        // lift the data up to the App state
-        console.log(data);
-        this.props.setUser(data);
-        this.props.history.push("/dashboard");
+    referral(this.state.username, this.state.password, this.state.flatId).then(
+      data => {
+        if (data.message) {
+          // handle errors
+          this.setState({
+            error: data.message
+          });
+        } else {
+          // no error
+          // lift the data up to the App state
+          console.log(data);
+          this.props.setUser(data);
+          this.props.history.push("/dashboard");
+        }
       }
-    });
+    );
+  };
+
+  componentDidMount = () => {
+    console.log("Hallooooo");
+    console.log(this.props.match.params.flatId);
   };
 
   render() {
