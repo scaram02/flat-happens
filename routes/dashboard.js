@@ -35,6 +35,21 @@ router.get("/", (req, res) => {
   });
 });
 
+router.put("/:taskId", (req, res, next) => {
+  // id should be the id of the task which was onClicked to activate this put request
+  const id = req.params.taskId;
+
+  //const { user } = req.body;
+
+  Task.findByIdAndUpdate(id, { user: req.user._id }, { new: true })
+    .then(task => {
+      res.json(task);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 // router.get("/:week/:year", (req, res) => {
 //   console.log("This is the real MVP");
 
