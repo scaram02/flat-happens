@@ -9,7 +9,7 @@ import Flatform from "./components/Flatform";
 import Invite from "./components/Invite";
 import Profile from "./components/Profile";
 import Dashboard from "./components/Dashboard";
-
+import Home from "./components/Home";
 
 class App extends React.Component {
   state = {
@@ -26,16 +26,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar user={this.state.user} clearUser={this.setUser} />
+        <Route exact path="/" component={Home} />
         <Route
           exact
           path="/signup"
-          // component={Signup}
           render={props => <Signup {...props} setUser={this.setUser} />}
         />
         <Route
           exact
           path="/signup/:flatId"
-          // component={Signup}
           render={props => <SignupFlatmate {...props} setUser={this.setUser} />}
         />
         <Route
