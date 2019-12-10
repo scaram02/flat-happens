@@ -20,7 +20,7 @@ require("./configs/passport");
 // IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
 
 mongoose
-  .connect("mongodb://localhost/flatshare", {
+  .connect(process.env.MONGODB_URI ||"mongodb://localhost/flatshare", {
     useNewUrlParser: true
   })
   .then(x => {
@@ -85,8 +85,8 @@ app.locals.title = "WG APP";
 
 // ROUTES MIDDLEWARE STARTS HERE:
 
-const index = require("./routes/index");
-app.use("/", index);
+// const index = require("./routes/index");
+// app.use("/", index);
 
 // rename flat route => dashboard route
 const dashboardRoutes = require("./routes/dashboard");
@@ -103,5 +103,10 @@ app.use("/api/create-flat", createFlatRoutes);
 
 const profileRoutes = require("./routes/profile");
 app.use("/api/profile", profileRoutes);
+
+app.use((req, res) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 module.exports = app;

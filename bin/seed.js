@@ -213,7 +213,7 @@ const Weeks = [
 const mongoose = require("mongoose");
 const Week = require("../models/Week");
 
-mongoose.connect("mongodb://localhost/flatshare");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/flatshare");
 
 Week.insertMany(Weeks)
   .then(documents => {
