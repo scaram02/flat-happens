@@ -19,6 +19,9 @@ const Navbar = props => {
           <Link to="/" onClick={handleLogout}>
             Logout
           </Link>
+          <Link to="/settings">
+            <img src="/public/images/settings.jpg" alt="" />
+          </Link>
         </>
       ) : (
         <React.Fragment>
