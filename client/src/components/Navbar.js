@@ -1,3 +1,4 @@
+import "./Navbar.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar as Nav } from "react-bootstrap";
@@ -12,7 +13,7 @@ const Navbar = props => {
   };
 
   return (
-    <Nav className="nav justify-content-center" bg="basic">
+    <Nav className="navbar-container" bg="basic">
       {props.user ? (
         <>
           <Link to="/">Welcome {props.user.username}</Link>
@@ -20,7 +21,7 @@ const Navbar = props => {
             Logout
           </Link>
           <Link to="/settings">
-            <img src="/public/images/settings.jpg" alt="" />
+            <img className="settings-img" src="/images/settings.jpg" alt="" />
           </Link>
         </>
       ) : (

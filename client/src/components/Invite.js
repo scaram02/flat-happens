@@ -1,38 +1,44 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 export default class Invite extends Component {
-  getData = () => {
-    const flatId = this.props.match.params.id;
-
-    axios
-      .get(`/api/invite/${flatId}`)
-      .then(response => {
-        console.log(response);
-        // this.setState({
-        //   name: response.data,
-        //   weeklyTasks: response.data,
-        //   user: response.data
-        // });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  state = {
+    textToCopy: "",
+    message: ""
   };
 
-  componentDidMount() {
-    console.log("MOUNTED");
-    this.getData();
-  }
+  anotherPage = () => {
+    navigator.clipboard.writeText(this.state.textToCopy);
+    // this.setState({ message: "Your link has been added to the clipboad" });
+    // this.timeOut();
+  };
+
+  // timeOut = () => {
+  //   setTimeout(() => {
+  //     this.setState({ message: "" });
+  //   }, 1000);
+  // };
+  
+  componentDidMount = () => {
+    this.setState({
+      textToCopy: `https://wg-your-way.herokuapp.com/invite/${this.props.match.params.id}`
+    });
+  };
 
   render() {
     return (
       <div>
         Your flat has been successfully created. You can invite your flatmates
         by sharing this link with them.
-        <p> signup/{this.props.match.params.id}</p>
-
+        <i
+            onClick={this.anotherPage}
+            style={{ cursor: "pointer" }}
+          ></i>
+          {/* <p style={{ textAlign: "center" }}>{this.state.message}</p> */}
+        <Link to={`/invite/${this.props.match.params.id}`}>
+            {" "}
+            Share with your Flatmates
+          </Link>
         <Link to="/dashboard">GO to your DASHBOARD</Link>
       </div>
     );
