@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import SignupFlatmate from "./components/SignupFlatmate";
@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
+        <Switch>
         <Route exact path="/" component={Home} />
         <Route
           exact
@@ -52,16 +52,21 @@ class App extends React.Component {
           path="/invite/:id"
           render={props => <Invite {...props} user={this.state.user} />}
         />
+        <>
+        <Navbar user={this.state.user} clearUser={this.setUser} />
         <Route
           exact
           path="/dashboard"
           render={props => <Dashboard {...props} user={this.state.user} />}
         />
+        </>
         <Route
           exact
           path="/profile"
           render={props => <Profile {...props} user={this.state.user} />}
         />
+        
+        </Switch>
       </div>
     );
   }
