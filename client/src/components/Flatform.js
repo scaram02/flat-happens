@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import './flatform.css'
 
 const Checkbox = props => <input type="checkbox" {...props} />;
 
@@ -131,7 +132,7 @@ export default class Flatform extends Component {
           </label>
 
 
-          <Button type="submit">Create your flat!</Button>
+          <Button className="button" type="submit">Create your flat!</Button>
         </Form>
       </div>
     );

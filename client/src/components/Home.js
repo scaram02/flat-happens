@@ -11,7 +11,7 @@ export default class Home extends Component {
           <h1>WG Your Way</h1> 
           </div>
           {/* Flat'll happen */}
-        <h2>We offer a great solution to manage your WG life!</h2>
+        <h2>We offer a great solution to managing your WG life!</h2>
         </div>
         <div className="home-button">
           <div className='home-button-container'>

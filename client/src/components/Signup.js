@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { signup } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import './Signup.css'
 
 class Signup extends Component {
   state = {
@@ -62,7 +63,7 @@ class Signup extends Component {
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button type="submit">Sign up</Button>
+          <Button className='signup-button' type="submit">Sign up</Button>
         </Form>
       </div>
     );
