@@ -8,7 +8,7 @@ export default class Home extends Component {
         <div className="home-nav">
         <div className="header-container">
           <div className='teach-me-css-pls'>
-          <h1>Flat'll Be the Day</h1> 
+          <h1>WG Your Way</h1> 
           </div>
           {/* Flat'll happen */}
         <h2>We offer a great solution to manage your WG life!</h2>
