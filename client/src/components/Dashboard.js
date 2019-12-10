@@ -4,6 +4,7 @@ import Weekbar from "./Weekbar";
 import UnassignedTasks from "./UnassignedTasks";
 import FlatmateList from "./FlatmateList";
 import moment from "moment";
+import Navbar from './Navbar.js'
 
 class Dashboard extends Component {
   state = {
@@ -58,6 +59,7 @@ class Dashboard extends Component {
     console.log(this.props);
     return (
       <div className="flat-container">
+        <Navbar user={this.state.user} clearUser={this.setUser} />
         <Weekbar
           currentInfo={this.state}
           flatInfo={this.state.flatInfo}

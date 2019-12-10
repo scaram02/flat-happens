@@ -1,7 +1,80 @@
+body {
+  font-family: 'Times New Roman', Times, serif
+}
+
 .home-container {
   background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  justify-content: center;
+  background-position: center;
   height: 100vh;
-  max-width: 100%
+  max-width: 100%;
+  padding-top: 9%
+}
+
+/* add new div for h1 here, child of header-container? if only I could do css */
+.teach-me-css-pls {
+   margin-bottom: 5%; 
+  }
+
+  /* why won't my text center */
+.header-container {
+  color: rgb(190, 0, 127);
+  font-size: 2.2em;
+  /* width: 85%; */
+  /* margin-top: 1em; */
+  text-align: center;
+  margin-bottom: .4em;
+  text-align: center;
+}
+
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  width: 37%;
+  height: 65%;
+  background-color: rgba(255, 255, 255, 0.39);
+  margin-left: 6.5em;
+  border-radius: 1%;
+  padding-top: 2em;
+  justify-content: center;
+}
+
+.home-button-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background-color: rgba(238, 238, 69, 0.973);
+  padding-bottom: 3%;
+  padding-top: 1%;
+  margin-bottom: 3%;
+  text-align: center;
+  margin-top: 3%;
+  border-radius: 5%;
+}
+
+.home-button {
+display: flex;
+align-items: center;
+flex-direction: column;
+
+} 
+
+.button-links {
+  color: rgb(190, 0, 127);
+  font-size: 1.5em;
+}
+
+
+/*  but this is for all links so beware the nav */
+a:hover {
+  color: rgb(120, 206, 180);
+  text-decoration: none;
+
+}
+
+.home-button-container:hover {
+  width: 55%
 }
