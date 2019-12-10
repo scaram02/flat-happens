@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
+        <Navbar user={this.state.user} clearUser={this.setUser} />
         <Route exact path="/" component={Home} />
         <Route
           exact

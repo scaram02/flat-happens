@@ -10,7 +10,9 @@ export default class Flatform extends Component {
     weeklyTasks: [],
     user: [],
     checkedOne: false,
-    checkedTwo: false
+    checkedTwo: false,
+    checkedThree: false,
+    checkedFour: false
   };
 
   handleCheckboxOneChange = task => {
@@ -26,6 +28,23 @@ export default class Flatform extends Component {
     console.log("here you have multiple things checked", task);
     this.setState({
       checkedTwo: !this.state.checkedTwo,
+      weeklyTasks: this.state.weeklyTasks.concat(task)
+    });
+  };
+
+  handleCheckboxThreeChange = task => {
+    console.log("here you have multiple things checked", task);
+    this.setState({
+      checkedThree: !this.state.checkedThree,
+      weeklyTasks: this.state.weeklyTasks.concat(task)
+    });
+  };
+
+
+  handleCheckboxFourChange = task => {
+    console.log("here you have multiple things checked", task);
+    this.setState({
+      checkedFour: !this.state.checkedFour,
       weeklyTasks: this.state.weeklyTasks.concat(task)
     });
   };
@@ -90,6 +109,27 @@ export default class Flatform extends Component {
             />
             <span>Clean the bathroom</span>
           </label>
+
+          <label>
+            <Checkbox
+              checked={this.state.checkedThree}
+              onChange={() =>
+                this.handleCheckboxThreeChange("Buy toiletries")
+              }
+            />
+            <span>Buy toiletries</span>
+          </label>
+
+          <label>
+            <Checkbox
+              checked={this.state.checkedFour}
+              onChange={() =>
+                this.handleCheckboxFourChange("Take out the garbage")
+              }
+            />
+            <span>Take out the garbage</span>
+          </label>
+
 
           <Button type="submit">Create your flat!</Button>
         </Form>

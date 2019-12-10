@@ -59,7 +59,6 @@ class Dashboard extends Component {
     console.log(this.props);
     return (
       <div className="flat-container">
-        <Navbar user={this.state.user} clearUser={this.setUser} />
         <Weekbar
           currentInfo={this.state}
           flatInfo={this.state.flatInfo}
