@@ -67,12 +67,12 @@ class App extends React.Component {
               path="/settings"
               render={props => <Settings {...props} user={this.state.user} />}
             />
+            <Route
+              exact
+              path="/profile"
+              render={props => <Profile {...props} user={this.state.user} />}
+            />
           </>
-          <Route
-            exact
-            path="/profile"
-            render={props => <Profile {...props} user={this.state.user} />}
-          />
         </Switch>
       </div>
     );

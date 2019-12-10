@@ -104,4 +104,7 @@ app.use("/api/create-flat", createFlatRoutes);
 const profileRoutes = require("./routes/profile");
 app.use("/api/profile", profileRoutes);
 
+const settingsRoutes = require("./routes/settings");
+app.use("/api/settings", settingsRoutes);
+
 module.exports = app;
