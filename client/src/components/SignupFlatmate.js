@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { referral } from "../services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import './Signup.css'
 
 class SignupFlatmate extends Component {
   state = {
@@ -70,7 +71,7 @@ class SignupFlatmate extends Component {
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button type="submit">Sign up</Button>
+          <Button className='signup-button' type="submit">Sign up</Button>
         </Form>
       </div>
     );
