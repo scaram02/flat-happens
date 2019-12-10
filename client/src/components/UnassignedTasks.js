@@ -6,7 +6,7 @@ const UnassignedTasks = props => {
 
   return (
     <div>
-      <h1>Here are the unnasigned Tasks</h1>
+      <h1>Here are the unassigned Tasks</h1>
       {props.tasks.map((el, index) => {
         return <Task key={index} task={el} name={el.name} />;
       })}
