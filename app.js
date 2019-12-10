@@ -20,7 +20,7 @@ require("./configs/passport");
 // IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
 
 mongoose
-  .connect("mongodb://localhost/project-management-server", {
+  .connect("mongodb://localhost/flatshare", {
     useNewUrlParser: true
   })
   .then(x => {
@@ -81,25 +81,27 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // default value for title local
-app.locals.title = "Express - Generated with IronGenerator";
+app.locals.title = "WG APP";
 
 // ROUTES MIDDLEWARE STARTS HERE:
 
 const index = require("./routes/index");
 app.use("/", index);
 
-// const projectRoutes = require("./routes/project");
-// app.use("/api/projects", projectRoutes);
+// rename flat route => dashboard route
+const dashboardRoutes = require("./routes/dashboard");
+app.use("/api/dashboard", dashboardRoutes);
 
-// const taskRoutes = require("./routes/task");
-// app.use("/api/tasks", taskRoutes);
+const inviteRoutes = require("./routes/invite");
+app.use("/api/invite", inviteRoutes);
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
-app.use((req, res) => {
-  // If no routes match, send them the React HTML.
-  res.sendFile(__dirname + "/client/build/index.html");
-});
+const createFlatRoutes = require("./routes/create-flat");
+app.use("/api/create-flat", createFlatRoutes);
+
+const profileRoutes = require("./routes/profile");
+app.use("/api/profile", profileRoutes);
 
 module.exports = app;
