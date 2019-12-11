@@ -38,33 +38,42 @@ class Signup extends Component {
   render() {
     return (
       <div className="chalkboard-container">
+        <div className='box'>
+        <div>
         <h2>Sign up</h2>
+        </div>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
+          <div className="fields">
+            {/* <label htmlFor="username">Username: </label> */}
+            
+            <input
               type="text"
               name="username"
               id="username"
+              placeholder="username"
               value={this.state.username}
               onChange={this.handleChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control
+            </div>
+          <div>
+            {/* <label htmlFor="password">Password: </label> */}
+            </div>
+            <div className="fields">
+            <input
               type="password"
               name="password"
               id="password"
+              placeholder="password"
               value={this.state.password}
               onChange={this.handleChange}
             />
-          </Form.Group>
+        </div>
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
           <Button className='signup-button' type="submit">Sign up</Button>
         </Form>
+    </div>
       </div>
     );
   }
