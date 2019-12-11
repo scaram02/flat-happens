@@ -15,15 +15,45 @@
   margin-left: 30%;
   margin-top: 3%;
   border-radius: 2%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
-.flatform-title {
+.flatform-title h1 {
   padding-top: 4%;
+  font-size: 2.9rem;
+}
+
+.label-container h2 {
+  font-size: 2.3rem;
 }
 
 .input-container input {
   border: 1px solid white;
-  height: 30px;
+  height: 40px;
   width: 100%;
   text-decoration: none;
+}
+
+.form-title-2 h2{
+  padding-top: 7%;
+  font-size: 2.3rem;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 30px;
+}
+
+button {
+  color: white;
+  background-color: rgba(202, 62, 144, 0.8);
+  text-decoration: none;
+  width: 50%;
+  height: 10%;
+  border: 2px rgb(202, 62, 144);
+  font-size: 1.8rem;
+  margin-top: 20px;
 }

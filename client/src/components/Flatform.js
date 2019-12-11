@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './flatform.css'
 
-const Checkbox = props => <input type="checkbox" {...props} />;
+// const Checkbox = props => <input type="checkbox" {...props} />;
 
 export default class Flatform extends Component {
   state = {
@@ -102,14 +102,14 @@ export default class Flatform extends Component {
                   onChange={this.handleChange}
                 />
               </div>
-            <div>
+            <div className="form-title-2">
                <h2>Choose your weekly tasks:</h2>
             </div>
 
             <div className="checkbox-container">
               <div className="checkboxes">
                 <label>
-                  <Checkbox
+                  <input type="checkbox"
                     checked={this.state.checkedOne}
                     onChange={() =>
                       this.handleCheckboxOneChange("Clean the kitchen")
@@ -121,7 +121,7 @@ export default class Flatform extends Component {
 
               <div className="checkboxes">
                 <label>
-                  <Checkbox
+                  <input type="checkbox"
                     checked={this.state.checkedTwo}
                     onChange={() =>
                       this.handleCheckboxTwoChange("Clean the bathroom")
@@ -133,7 +133,7 @@ export default class Flatform extends Component {
 
               <div className="checkboxes">
                 <label>
-                  <Checkbox
+                  <input type="checkbox"
                     checked={this.state.checkedThree}
                     onChange={() =>
                       this.handleCheckboxThreeChange("Buy toiletries")
@@ -145,7 +145,7 @@ export default class Flatform extends Component {
 
               <div className="checkboxes">
                 <label>
-                  <Checkbox
+                  <input type="checkbox"
                     checked={this.state.checkedFour}
                     onChange={() =>
                       this.handleCheckboxFourChange("Take out the garbage")
