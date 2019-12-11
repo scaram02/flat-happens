@@ -1,6 +1,6 @@
 @font-face {
   font-family: chalkfont;
-  src: url("/fonts/chalkfont1.ttf");
+  src: url("/fonts/chalkfont3.otf");
 }
 
 * {
@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: xx-large;
+  
 }
 
 body {
@@ -17,14 +17,13 @@ body {
 }
 
 .home-container {
-  /* background-image: url("../flat-1.jpg");
+  background-image: url("/images/chalkboard-kitchen.png");
   background-repeat: no-repeat;
-  background-size: cover; */
+  background-size: cover;
   justify-content: center;
   background-position: center;
   height: 100vh;
   max-width: 100%;
-  padding-top: 9%;
 }
 
 /* add new div for h1 here, child of header-container? if only I could do css */
@@ -32,10 +31,10 @@ body {
   margin-bottom: 5%;
 }
 
-/* why won't my text center */
+
 .header-container {
-  color: rgb(190, 0, 127);
-  font-size: 2.2em;
+  /* color: rgb(190, 0, 127); */
+  font-size: 2.5em;
   /* width: 85%; */
   /* margin-top: 1em; */
   text-align: center;
@@ -49,11 +48,10 @@ body {
   display: flex;
   flex-direction: column;
   width: 37%;
-  height: 65%;
-  background-color: rgba(255, 255, 255, 0.39);
-  margin-left: 6.5em;
+  height: 52%;
+  /* background-color: rgba(255, 255, 255, 0.39); */
+  margin-left: 13%;
   border-radius: 1%;
-  padding-top: 2em;
   justify-content: center;
 }
 
@@ -61,7 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: rgba(238, 238, 69, 0.973);
+  background-color: rgba(238, 238, 69, 0.95);
   padding-bottom: 3%;
   padding-top: 1%;
   margin-bottom: 3%;

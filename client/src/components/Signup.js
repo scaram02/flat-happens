@@ -37,7 +37,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
+      <div className="chalkboard-container">
         <h2>Sign up</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
