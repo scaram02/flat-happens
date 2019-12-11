@@ -3,6 +3,7 @@ import axios from "axios";
 import Weekbar from "./Weekbar";
 import UnassignedTasks from "./UnassignedTasks";
 import FlatmateList from "./FlatmateList";
+import './Dashboard.css'
 
 class Dashboard extends Component {
   state = {
@@ -130,7 +131,7 @@ class Dashboard extends Component {
       this.state.allTasks && this.state.allTasks.filter(x => x.user !== null);
     console.log(unnassignedTasks, assignedTasks);
     return (
-      <div className="flat-container">
+      <div className="dashboard-container">
         {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
         <Weekbar
           currentInfo={this.state}

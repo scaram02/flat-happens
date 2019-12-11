@@ -16,18 +16,22 @@ const Navbar = props => {
     <Nav className="navbar-container" bg="basic">
       {props.user ? (
         <>
-          <Link to="/">Welcome {props.user.username}</Link>
-          <Link to="/" onClick={handleLogout}>
-            Logout
-          </Link>
-          <Link to="/settings">
-            <img className="settings-img" src="/images/settings.jpg" alt="" />
-          </Link>
+          <div>
+          <p>Welcome {props.user.username}</p>
+          </div>
+          <div>
+            <Link to="/" onClick={handleLogout}>
+              Log out
+            </Link>
+            <Link to="/settings">
+              <img className="settings-img" src="/images/settings.jpg" alt="" />
+            </Link>
+          </div>
         </>
       ) : (
         <React.Fragment>
-          <Link to="/signup">Signup</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign up</Link>
+          <Link to="/login">Log in</Link>
         </React.Fragment>
       )}
     </Nav>
