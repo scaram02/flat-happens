@@ -13,7 +13,9 @@ class Dashboard extends Component {
     currentYear: null,
     weekRange: null,
     flatmates: [],
-    thisWeekTask: []
+    thisWeekTask: [],
+    startWeek: null,
+    startYear: null
   };
 
   getData = () => {
@@ -32,6 +34,8 @@ class Dashboard extends Component {
             flatInfo: response.data.flat,
             flatmates: response.data.flat.user,
             currentWeek: currentWeek,
+            startWeek: currentWeek,
+            startYear: currentYear,
             currentYear: currentYear,
             weekRange: weekRange
           },
@@ -82,12 +86,23 @@ class Dashboard extends Component {
     const newWeek = response.data.tasks[0].week.week;
     const newYear = response.data.tasks[0].week.year;
     const newWeekRange = response.data.tasks[0].week.weekRange;
-    this.setState({
-      allTasks: response.data.tasks,
-      currentWeek: newWeek,
-      currentYear: newYear,
-      weekRange: newWeekRange
-    });
+
+    this.setState(
+      {
+        allTasks: response.data.tasks,
+        currentWeek: newWeek,
+        currentYear: newYear,
+        weekRange: newWeekRange
+      },
+      () => {
+        if (
+          this.state.currentWeek === this.state.startWeek &&
+          this.state.currentYear === this.state.startYear
+        ) {
+          this.getData();
+        }
+      }
+    );
   };
 
   nextWeek = () => {
@@ -138,8 +153,13 @@ class Dashboard extends Component {
           user={this.state.user}
           previousWeek={this.previousWeek}
           nextWeek={this.nextWeek}
+          getData={this.getData}
         />
-        <FlatmateList flatmate={this.state.flatmates} tasks={assignedTasks} />
+        <FlatmateList
+          flatmate={this.state.flatmates}
+          tasks={assignedTasks}
+          getData={this.getData}
+        />
         <UnassignedTasks tasks={unnassignedTasks} getData={this.getData} />
       </div>
     );
