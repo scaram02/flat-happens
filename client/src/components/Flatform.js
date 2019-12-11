@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
+// import { Form } from "react-bootstrap";
 import axios from "axios";
 import './flatform.css'
 
@@ -79,26 +79,35 @@ export default class Flatform extends Component {
   render() {
     // console.log("tHE FLATFORM IS WORKING", this.props);
     return (
-      <div className="form">
-        <h1>Tell us about your flat </h1>
+      <div className="flatform-container">
+
+        <div className="flatform-title">
+        <h1>Set up your shared flat!</h1>
+        </div>
+
         <div className="form-container">
-          <Form onSubmit={this.handleSubmit}>
-            <Form.Group>
-              <div className="flat-name">
-                <Form.Label>
+          <form onSubmit={this.handleSubmit}>
+
+              <div className="label-container">
+                <label>
                   <h2>Give your apartment a cool name:</h2>
-                </Form.Label>
-                <Form.Control
+                </label>
+                </div>
+                
+                <div className="input-container">
+                <input
                   type="text"
                   name="name"
                   value={this.state.name}
                   onChange={this.handleChange}
                 />
               </div>
-            </Form.Group>
-            <h2>Choose your weekly tasks:</h2>
+            <div>
+               <h2>Choose your weekly tasks:</h2>
+            </div>
+
             <div className="checkbox-container">
-              <div>
+              <div className="checkboxes">
                 <label>
                   <Checkbox
                     checked={this.state.checkedOne}
@@ -109,7 +118,8 @@ export default class Flatform extends Component {
                   <span>Clean the kitchen</span>
                 </label>
               </div>
-              <div>
+
+              <div className="checkboxes">
                 <label>
                   <Checkbox
                     checked={this.state.checkedTwo}
@@ -120,7 +130,8 @@ export default class Flatform extends Component {
                   <span>Clean the bathroom</span>
                 </label>
               </div>
-              <div>
+
+              <div className="checkboxes">
                 <label>
                   <Checkbox
                     checked={this.state.checkedThree}
@@ -131,7 +142,8 @@ export default class Flatform extends Component {
                   <span>Buy toiletries</span>
                 </label>
               </div>
-              <div>
+
+              <div className="checkboxes">
                 <label>
                   <Checkbox
                     checked={this.state.checkedFour}
@@ -143,10 +155,10 @@ export default class Flatform extends Component {
                 </label>
               </div>
             </div>
-            <Button className="button" type="submit">
+            <button className="button" type="submit">
               Create your flat!
-            </Button>
-          </Form>
+            </button>
+          </form>
         </div>
       </div>
     );
