@@ -9,7 +9,7 @@
 }
 
 .chalkboard-container {
-  background-image: url("/images/chalkboard-kitchen.png");
+  background-image: url("../images/chalkboard-kitchen.png");
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;

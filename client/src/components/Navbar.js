@@ -24,7 +24,7 @@ const Navbar = props => {
               Log out
             </Link>
             <Link to="/settings">
-              <img className="settings-img" src="/images/settings.jpg" alt="" />
+              <img className="settings-img" src="../images/settings.jpg" alt="" />
             </Link>
           </div>
         </>
