@@ -14,11 +14,11 @@ router.get("/:week/:year", (req, res) => {
 
   Week.find({ $and: [{ week: week }, { year: year }] }).then(weekWeWant => {
     // console.log(weekWeWant);
-    Flat.find({ user: "5df0bc3f3f56e20dc2ec29ec" })
+    Flat.find({ user: req.user._id })
       // Flat.find({ user: req.user._id })
       .populate("user")
       .then(flatArray => {
-        console.log(flatArray[0]);
+        console.log(flatArray);
         Task.find({
           $and: [{ flat: flatArray[0]._id }, { week: weekWeWant[0]._id }]
         })
