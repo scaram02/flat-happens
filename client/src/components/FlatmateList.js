@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./FlatmateList.css"
 // import Flatmate from "./Flatmate";
 
 const FlatmateList = props => {
@@ -36,7 +37,7 @@ const FlatmateList = props => {
           <>
             {t.finished ? (
               <li
-                style={{ textDecoration: "line-through" }}
+                style={{ textDecoration: "line-through", color: "#98bc76" }}
                 onClick={() => removeTask(t._id)}
               >
                 {t.name}
@@ -44,22 +45,20 @@ const FlatmateList = props => {
             ) : (
               <li onClick={() => removeTask(t._id)}>{t.name}</li>
             )}
-
-            <button onClick={() => checkTask(t._id)}>CHeck</button>
+            <img id="check" src={require("../images/check.png")} onClick={() => checkTask(t._id)}/>
           </>
         );
       });
     return (
       <div>
-        <h3> {x.username} </h3>
-        <ul>{tasks}</ul>
+        <h1> {x.username} </h1>
+        <h2>{tasks}</h2>
       </div>
     );
   });
 
   return (
     <div>
-      <h1>Flatmates</h1>
       {flatmate}
     </div>
   );

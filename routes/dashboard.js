@@ -84,6 +84,18 @@ router.put("/check/:id", (req, res, next) => {
   });
 });
 
+// router.get("/:taskId", (req, res, next) => {
+//   // id should be the id of the task which was onClicked to activate this put request
+//   const id = req.params.taskId;
+//   Task.findByIdAndDelete(id, { user: req.user._id }, { new: true })
+//     .then(task => {
+//       res.json(task);
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
+
 // assign the task to the logged in user
 router.get("/:taskId", (req, res, next) => {
   // id should be the id of the task which was onClicked to activate this put request

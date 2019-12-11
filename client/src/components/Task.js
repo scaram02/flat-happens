@@ -17,7 +17,7 @@ class Task extends React.Component {
 
   render() {
     // console.log(this.props);
-    return <h5 onClick={this.handleClick}>{this.props.name}</h5>;
+    return <h2 onClick={this.handleClick}>{this.props.name}</h2>;
   }
 }
 

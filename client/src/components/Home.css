@@ -1,6 +1,6 @@
 @font-face {
   font-family: chalkfont;
-  src: url("/fonts/chalkfont3.otf");
+  src: url("../fonts/chalkfont3.otf");
 }
 
 * {
