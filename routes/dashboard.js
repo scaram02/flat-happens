@@ -56,8 +56,36 @@ router.get("/", (req, res) => {
   );
 });
 
+router.put("/remove/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  Task.findByIdAndUpdate(id, { user: null, finished: false }, { new: true })
+    .then(task => {
+      res.json(task);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+router.put("/check/:id", (req, res, next) => {
+  const id = req.params.id;
+  console.log(id);
+  Task.findById(id).then(task => {
+    console.log(task);
+    const finished = task.finished;
+    Task.findByIdAndUpdate(id, { finished: !finished }, { new: true })
+      .then(task => {
+        res.json(task);
+      })
+      .catch(err => {
+        res.status(500).json(err);
+      });
+  });
+});
+
 // assign the task to the logged in user
-router.post("/:taskId", (req, res, next) => {
+router.get("/:taskId", (req, res, next) => {
   // id should be the id of the task which was onClicked to activate this put request
   const id = req.params.taskId;
   Task.findByIdAndUpdate(id, { user: req.user._id }, { new: true })

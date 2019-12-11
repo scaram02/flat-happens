@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 // import Flatmate from "./Flatmate";
 
 const FlatmateList = props => {
@@ -6,6 +7,21 @@ const FlatmateList = props => {
   // console.log("TASKS", props.tasks);
 
   //return <Flatmate key={x._id} user={x} />;
+
+  const removeTask = id => {
+    // console.log(id);
+    axios.put(`/api/dashboard/remove/${id}`).then(response => {
+      console.log("this is the Axios response: ", response);
+      props.getData();
+    });
+  };
+
+  const checkTask = id => {
+    axios.put(`/api/dashboard/check/${id}`).then(response => {
+      console.log("this is the Axios response: ", response);
+      props.getData();
+    });
+  };
 
   const flatmate = props.flatmate.map(x => {
     const tasks = props.tasks
@@ -15,7 +31,23 @@ const FlatmateList = props => {
         return t.user.username === x.username;
       })
       .map(t => {
-        return <li>{t.name}</li>;
+        // console.log(t);
+        return (
+          <>
+            {t.finished ? (
+              <li
+                style={{ textDecoration: "line-through" }}
+                onClick={() => removeTask(t._id)}
+              >
+                {t.name}
+              </li>
+            ) : (
+              <li onClick={() => removeTask(t._id)}>{t.name}</li>
+            )}
+
+            <button onClick={() => checkTask(t._id)}>CHeck</button>
+          </>
+        );
       });
     return (
       <div>
