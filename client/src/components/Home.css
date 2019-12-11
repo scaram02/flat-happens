@@ -3,14 +3,14 @@ body {
 }
 
 .home-container {
-  background-image: url("../background.jpg");
+  background-image: url("../flat-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: center;
   background-position: center;
   height: 100vh;
   max-width: 100%;
-  padding-top: 9%
+  padding-top: 9%;
 }
 
 /* add new div for h1 here, child of header-container? if only I could do css */
@@ -27,6 +27,8 @@ body {
   text-align: center;
   margin-bottom: .4em;
   text-align: center;
+  margin-left: 5%;
+  margin-right: 5%
 }
 
 

@@ -20,7 +20,7 @@ require("./configs/passport");
 // IF YOU STILL DIDN'T, GO TO 'configs/passport.js' AND UN-COMMENT OUT THE WHOLE FILE
 
 mongoose
-  .connect(process.env.MONGODB_URI ||"mongodb://localhost/flatshare", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/flatshare", {
     useNewUrlParser: true
   })
   .then(x => {
@@ -101,8 +101,8 @@ app.use("/api/auth", authRoutes);
 const createFlatRoutes = require("./routes/create-flat");
 app.use("/api/create-flat", createFlatRoutes);
 
-const profileRoutes = require("./routes/profile");
-app.use("/api/profile", profileRoutes);
+const settingsRoutes = require("./routes/settings");
+app.use("/api/settings", settingsRoutes);
 
 app.use((req, res) => {
   // If no routes match, send them the React HTML.

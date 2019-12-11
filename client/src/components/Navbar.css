@@ -1,0 +1,8 @@
+.navbar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-img {
+  width: 50px;
+}
