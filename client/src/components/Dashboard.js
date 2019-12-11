@@ -3,8 +3,6 @@ import axios from "axios";
 import Weekbar from "./Weekbar";
 import UnassignedTasks from "./UnassignedTasks";
 import FlatmateList from "./FlatmateList";
-import moment from "moment";
-// import Navbar from './Navbar.js'
 
 class Dashboard extends Component {
   state = {
@@ -19,31 +17,26 @@ class Dashboard extends Component {
   };
 
   getData = () => {
-    console.log("Function getData / Refresh data got called");
+    // console.log("GET DATA IN DASHBOARD");
+    // console.log("Function getData / Refresh data got called");
     axios
       .get("/api/dashboard")
       .then(response => {
-        console.log("Das Beautiful Resposne", response.data);
-        var currentWeek = moment().format("W") * 1;
-        var currentYear = moment().format("Y") * 1;
-        const thisWeekTask = response.data.filter(el => {
-          return el.week.week === currentWeek && el.week.year === currentYear;
-        });
-        const weekRange = thisWeekTask[0].week.weekRange;
-        // const week = ;
-        const flatInfo = response.data[0].flat;
-        this.setState({
-          allTasks: response.data,
-          flatInfo: flatInfo,
-
-          thisWeekTask: thisWeekTask,
-          currentWeek: thisWeekTask[0].week.week,
-          currentYear: thisWeekTask[0].week.year,
-          weekRange: weekRange,
-          flatmates: response.data[0].flat.user
-          // this.setState({
-          //   user: response.data
-        });
+        // console.log("Das Beautiful Resposne", response.data);
+        const currentWeek = response.data.tasks[0].week.week;
+        const currentYear = response.data.tasks[0].week.year;
+        const weekRange = response.data.tasks[0].week.weekRange;
+        this.setState(
+          {
+            allTasks: response.data.tasks,
+            flatInfo: response.data.flat,
+            flatmates: response.data.flat.user,
+            currentWeek: currentWeek,
+            currentYear: currentYear,
+            weekRange: weekRange
+          },
+          () => console.log("Das beautiful state", this.state)
+        );
       })
       .catch(err => {
         console.log(err);
@@ -54,9 +47,88 @@ class Dashboard extends Component {
     this.getData();
   }
 
+  previousWeek = () => {
+    const yearCheck =
+      this.state.currentYear === 2019 ||
+      this.state.currentYear === 2020 ||
+      this.state.currentYear === 2022;
+    if (yearCheck && this.state.currentWeek === 1) {
+      axios
+        .get(`/api/dashboard/${52}/${this.state.currentYear - 1}`)
+        .then(response => {
+          this.updateWeek(response);
+        });
+    } else if (!yearCheck && this.state.currentWeek === 1) {
+      axios
+        .get(`/api/dashboard/${53}/${this.state.currentYear - 1}`)
+        .then(response => {
+          this.updateWeek(response);
+        });
+    } else {
+      axios
+        .get(
+          `/api/dashboard/${this.state.currentWeek - 1}/${
+            this.state.currentYear
+          }`
+        )
+        .then(response => {
+          console.log(response);
+          this.updateWeek(response);
+        });
+    }
+  };
+
+  updateWeek = response => {
+    const newWeek = response.data.tasks[0].week.week;
+    const newYear = response.data.tasks[0].week.year;
+    const newWeekRange = response.data.tasks[0].week.weekRange;
+    this.setState({
+      allTasks: response.data.tasks,
+      currentWeek: newWeek,
+      currentYear: newYear,
+      weekRange: newWeekRange
+    });
+  };
+
+  nextWeek = () => {
+    const yearCheck =
+      this.state.currentYear === 2019 ||
+      this.state.currentYear === 2021 ||
+      this.state.currentYear === 2022;
+    if (this.state.currentWeek === 52 && yearCheck) {
+      axios
+        .get(`/api/dashboard/${1}/${this.state.currentYear + 1}`)
+        .then(response => {
+          console.log(response);
+          this.updateWeek(response);
+        });
+    } else if (this.state.currentWeek === 53 && !yearCheck) {
+      axios
+        .get(`/api/dashboard/${1}/${this.state.currentYear + 1}`)
+        .then(response => {
+          console.log(response);
+          this.updateWeek(response);
+        });
+    } else {
+      axios
+        .get(
+          `/api/dashboard/${this.state.currentWeek + 1}/${
+            this.state.currentYear
+          }`
+        )
+        .then(response => {
+          console.log(response);
+          this.updateWeek(response);
+        });
+    }
+  };
+
   render() {
-    console.log(this.state);
-    console.log(this.props);
+    const unnassignedTasks =
+      this.state.allTasks && this.state.allTasks.filter(x => x.user === null);
+    const assignedTasks =
+      this.state.allTasks && this.state.allTasks.filter(x => x.user !== null);
+    console.log(unnassignedTasks, assignedTasks);
     return (
       <div className="flat-container">
         {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
@@ -64,12 +136,11 @@ class Dashboard extends Component {
           currentInfo={this.state}
           flatInfo={this.state.flatInfo}
           user={this.state.user}
+          previousWeek={this.previousWeek}
+          nextWeek={this.nextWeek}
         />
-        <FlatmateList
-          flatmate={this.state.flatmates}
-          tasks={this.state.thisWeekTask}
-        />
-        <UnassignedTasks tasks={this.state.thisWeekTask} />
+        <FlatmateList flatmate={this.state.flatmates} tasks={assignedTasks} />
+        <UnassignedTasks tasks={unnassignedTasks} getData={this.getData} />
       </div>
     );
   }
