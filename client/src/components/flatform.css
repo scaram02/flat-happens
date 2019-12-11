@@ -1,35 +1,29 @@
 /* how to make this 100%? */
-.form {
-  background-color: rgba(120, 206, 180, 0.5);
-  height: 100%;
+.flatform-container {
+  background-image: url("../images/blackboard.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  max-width: 100%;
 }
 
 .form-container {
-  background-color: rgba(255, 255, 255, 0.39);
-  width: 50%;
-  margin-left: 25%
+  display: flex;
+  justify-content: center;
+  background-color: rgba(229, 235, 236, 0.2);
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: 3%;
+  border-radius: 2%;
 }
 
-.flat-name {
-  /* display: flex; */
-  width: 75%;
-  /* justify-content: center */
+.flatform-title {
+  padding-top: 4%;
 }
 
-.button {
-  background-color: rgb(190, 0, 127);
-  border-color: rgb(190, 0, 127)}
-
-
-.button:hover {
-  background-color: rgb(151, 204, 199);
-  border-color: rgb(151, 204, 199)
-}
-
-.checkbox-container {
-  /* text-align: left */
-}
-
-span {
-  font-size: 1.2rem;
+.input-container input {
+  border: 1px solid white;
+  height: 30px;
+  width: 100%;
+  text-decoration: none;
 }
