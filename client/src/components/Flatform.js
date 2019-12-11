@@ -41,7 +41,6 @@ export default class Flatform extends Component {
     });
   };
 
-
   handleCheckboxFourChange = task => {
     console.log("here you have multiple things checked", task);
     this.setState({
@@ -80,60 +79,75 @@ export default class Flatform extends Component {
   render() {
     // console.log("tHE FLATFORM IS WORKING", this.props);
     return (
-      <div>
-        <h2>Tell us about your flat </h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label>Name your apartment:</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <h2>Choose your weekly tasks:</h2>
-          <label>
-            <Checkbox
-              checked={this.state.checkedOne}
-              onChange={() => this.handleCheckboxOneChange("Clean the kitchen")}
-            />
-            <span>Clean the kitchen</span>
-          </label>
-
-          <label>
-            <Checkbox
-              checked={this.state.checkedTwo}
-              onChange={() =>
-                this.handleCheckboxTwoChange("Clean the bathroom")
-              }
-            />
-            <span>Clean the bathroom</span>
-          </label>
-
-          <label>
-            <Checkbox
-              checked={this.state.checkedThree}
-              onChange={() =>
-                this.handleCheckboxThreeChange("Buy toiletries")
-              }
-            />
-            <span>Buy toiletries</span>
-          </label>
-
-          <label>
-            <Checkbox
-              checked={this.state.checkedFour}
-              onChange={() =>
-                this.handleCheckboxFourChange("Take out the garbage")
-              }
-            />
-            <span>Take out the garbage</span>
-          </label>
-
-
-          <Button className="button" type="submit">Create your flat!</Button>
-        </Form>
+      <div className="form">
+        <h1>Tell us about your flat </h1>
+        <div className="form-container">
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group>
+              <div className="flat-name">
+                <Form.Label>
+                  <h2>Give your apartment a cool name:</h2>
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </Form.Group>
+            <h2>Choose your weekly tasks:</h2>
+            <div className="checkbox-container">
+              <div>
+                <label>
+                  <Checkbox
+                    checked={this.state.checkedOne}
+                    onChange={() =>
+                      this.handleCheckboxOneChange("Clean the kitchen")
+                    }
+                  />
+                  <span>Clean the kitchen</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <Checkbox
+                    checked={this.state.checkedTwo}
+                    onChange={() =>
+                      this.handleCheckboxTwoChange("Clean the bathroom")
+                    }
+                  />
+                  <span>Clean the bathroom</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <Checkbox
+                    checked={this.state.checkedThree}
+                    onChange={() =>
+                      this.handleCheckboxThreeChange("Buy toiletries")
+                    }
+                  />
+                  <span>Buy toiletries</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <Checkbox
+                    checked={this.state.checkedFour}
+                    onChange={() =>
+                      this.handleCheckboxFourChange("Take out the garbage")
+                    }
+                  />
+                  <span>Take out the garbage</span>
+                </label>
+              </div>
+            </div>
+            <Button className="button" type="submit">
+              Create your flat!
+            </Button>
+          </Form>
+        </div>
       </div>
     );
   }
