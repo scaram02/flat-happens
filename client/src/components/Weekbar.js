@@ -17,7 +17,9 @@ class Weekbar extends Component {
           <React.Fragment>
             {/* <Link to="/">Last Week</Link> */}
             <h2 onClick={this.props.previousWeek}>Last week</h2>
-            <h1>This week {this.props.currentInfo.currentWeek}</h1>
+            <h1 onClick={this.props.getData}>
+              This week {this.props.currentInfo.currentWeek}
+            </h1>
             <h2 onClick={this.props.nextWeek}>Next Week</h2>
             {/* <Link to="/">Next Week</Link> */}
           </React.Fragment>

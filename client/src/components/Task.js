@@ -9,14 +9,14 @@ class Task extends React.Component {
   // still in progress
 
   handleClick = () => {
-    axios.post(`/api/dashboard/${this.props.id}`).then(response => {
+    axios.get(`/api/dashboard/${this.props.id}`).then(response => {
       console.log("this is the Axios response: ", response);
       this.props.getData();
     });
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return <h5 onClick={this.handleClick}>{this.props.name}</h5>;
   }
 }
