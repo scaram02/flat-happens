@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import './Flatform.css'
+import "./flatform.css";
 
 const Checkbox = props => <input type="checkbox" {...props} />;
 
@@ -40,7 +40,6 @@ export default class Flatform extends Component {
       weeklyTasks: this.state.weeklyTasks.concat(task)
     });
   };
-
 
   handleCheckboxFourChange = task => {
     console.log("here you have multiple things checked", task);
@@ -114,9 +113,7 @@ export default class Flatform extends Component {
           <label>
             <Checkbox
               checked={this.state.checkedThree}
-              onChange={() =>
-                this.handleCheckboxThreeChange("Buy toiletries")
-              }
+              onChange={() => this.handleCheckboxThreeChange("Buy toiletries")}
             />
             <span>Buy toiletries</span>
           </label>
@@ -131,8 +128,9 @@ export default class Flatform extends Component {
             <span>Take out the garbage</span>
           </label>
 
-
-          <Button className="button" type="submit">Create your flat!</Button>
+          <Button className="button" type="submit">
+            Create your flat!
+          </Button>
         </Form>
       </div>
     );
