@@ -3,7 +3,7 @@ import Task from "./Task";
 import TaskForm from "./TaskForm";
 
 const UnassignedTasks = props => {
-  console.log("TASKS", props.tasks);
+  // console.log("TASKS", props.tasks);
 
   return (
     <div style={{ padding: "20px", backgroundColor: "red" }}>

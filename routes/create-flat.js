@@ -23,7 +23,12 @@ router.post("/", (req, res) => {
       allWeeks.forEach(week => {
         weeklyTasks.forEach(task => {
           console.log("LETS LOOK AT IT AGAIN, I DONT UNDERSTAND", task);
-          Task.create({ name: task, week: week._id, flat: flat._id }).then(
+          Task.create({
+            name: task,
+            week: week._id,
+            flat: flat._id,
+            user: null
+          }).then(
             // ANDRE: Is this how we are supposed to send tasks to the frontend?
             tasks => {
               console.log("Sucess! Task created");

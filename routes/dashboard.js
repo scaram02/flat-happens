@@ -9,6 +9,28 @@ const Task = require("../models/Task");
 
 // GET the flat dashboard in the current week
 
+router.get("/:week/:year", (req, res) => {
+  const { year, week } = req.params;
+
+  Week.find({ $and: [{ week: week }, { year: year }] }).then(weekWeWant => {
+    // console.log(weekWeWant);
+    Flat.find({ user: "5df0bc3f3f56e20dc2ec29ec" })
+      // Flat.find({ user: req.user._id })
+      .populate("user")
+      .then(flatArray => {
+        console.log(flatArray[0]);
+        Task.find({
+          $and: [{ flat: flatArray[0]._id }, { week: weekWeWant[0]._id }]
+        })
+          .populate({ path: "user week flat" })
+          .then(allTasks => {
+            // console.log(allTasks[0]);
+            res.json({ tasks: allTasks, flat: flatArray[0] });
+          });
+      });
+  });
+});
+
 router.get("/", (req, res) => {
   var currentWeek = moment().format("W") * 1;
   var currentYear = moment().format("Y") * 1;
@@ -21,7 +43,8 @@ router.get("/", (req, res) => {
           Task.find({
             $and: [{ flat: flatArray[0]._id }, { week: curWeek[0]._id }]
           })
-            .populate({ path: "user" })
+            // .populate("week")
+            .populate({ path: "user week flat" })
             //.populate("user")
             .then(allTasks => {
               console.log(allTasks[0]);
