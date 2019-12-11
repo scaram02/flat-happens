@@ -6,8 +6,8 @@ const UnassignedTasks = props => {
   // console.log("TASKS", props.tasks);
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "red" }}>
-      <h1>Here are the unassigned Tasks</h1>
+    <div>
+      <h1>Unassigned Tasks</h1>
       {props.tasks.map(el => {
         //return <h2> {el.name} </h2>;
         return (

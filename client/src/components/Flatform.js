@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
-import './Flatform.css'
+import './flatform.css'
 
 const Checkbox = props => <input type="checkbox" {...props} />;
 

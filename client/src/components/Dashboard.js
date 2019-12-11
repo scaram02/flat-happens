@@ -156,12 +156,14 @@ class Dashboard extends Component {
           nextWeek={this.nextWeek}
           getData={this.getData}
         />
+        <div className="dashboard-tasks">
+        <UnassignedTasks tasks={unnassignedTasks} getData={this.getData} />
         <FlatmateList
           flatmate={this.state.flatmates}
           tasks={assignedTasks}
           getData={this.getData}
         />
-        <UnassignedTasks tasks={unnassignedTasks} getData={this.getData} />
+        </div>
       </div>
     );
   }

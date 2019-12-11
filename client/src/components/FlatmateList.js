@@ -59,7 +59,7 @@ const FlatmateList = props => {
 
   return (
     <div>
-      <h1>Here are the flatmates</h1>
+      <h1>Flatmates</h1>
       {flatmate}
     </div>
   );
