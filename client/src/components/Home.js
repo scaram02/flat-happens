@@ -5,11 +5,11 @@ export default class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <div className="home-nav">
-        <div className="header-container">
-          <div className='teach-me-css-pls'>
+        <div className='teach-me-css-pls'>
           <h1>WG Your Way</h1> 
           </div>
+          <div className="home-nav">  
+        <div className="header-container">
           {/* Flat'll happen */}
         <h2>We offer a great solution to managing your WG life!</h2>
         </div>
