@@ -21,8 +21,9 @@
   padding-top: 4%;
 }
 
-.input-container {
-  /* border: 1px solid white; */
+.input-container input {
+  border: 1px solid white;
+  height: 30px;
   width: 100%;
   text-decoration: none;
 }
