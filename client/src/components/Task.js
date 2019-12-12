@@ -18,6 +18,7 @@ const Task = props => {
 
       <img
                 id="check"
+                   style={{ cursor: "pointer" }}
                 src={require("../images/remove.png")}
                 onClick={() => props.deleteTask(props.id)}
               />
