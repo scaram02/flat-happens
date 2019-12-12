@@ -29,15 +29,29 @@
 }
 
 .input-container input {
-  border: 1px solid white;
+  background: transparent;
+  border: none;
   height: 40px;
   width: 100%;
   text-decoration: none;
 }
 
-.form-title-2 h2{
+.input-container input:focus {
+outline: none;
+}
+
+::placeholder {
+color: rgba(250, 250, 250, 0.5);
+font-size: 30px;
+text-align: center;
+font-style: italic;
+}
+
+
+.form-title-2 h2 {
   padding-top: 7%;
   font-size: 2.3rem;
+  
 }
 
 .checkboxes {

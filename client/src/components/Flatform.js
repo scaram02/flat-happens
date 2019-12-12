@@ -98,6 +98,7 @@ export default class Flatform extends Component {
                 <input
                   type="text"
                   name="name"
+                  placeholder="Add the name of your flat here"
                   value={this.state.name}
                   onChange={this.handleChange}
                 />
