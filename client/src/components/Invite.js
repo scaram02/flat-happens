@@ -23,14 +23,13 @@ export default class Invite extends Component {
   componentDidMount = () => {
     this.setState({
       // textToCopy: `https://wg-your-way.herokuapp.com/invite/${this.props.match.params.id}`
-      textToCopy: `http://localhost:3000/signup/${this.props.match.params.id}`
+      textToCopy: `${process.env.REACT_APP_BASE_URL}/signup/${this.props.match.params.id}`
     });
   };
 
   render() {
     return (
       <div className="invite-container">
-
         <div className="invite-heading">
           <h1>Your flat has been successfully created</h1>
         </div>
@@ -42,7 +41,7 @@ export default class Invite extends Component {
         >
           Invite your flatmates
         </button>
-        
+
         <p className="invite-message">{this.state.message}</p>
         <Link to="/dashboard">
           <div className="to-dashboard">

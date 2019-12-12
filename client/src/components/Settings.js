@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./Settings.css"
+import "./Settings.css";
 
 export default class Settings extends Component {
   state = {
@@ -30,7 +30,7 @@ export default class Settings extends Component {
         console.log("THIS", flat.data[0]._id);
         this.setState({
           flatId: flat.data[0]._id,
-          textToCopy: `http://localhost:3000/signup/${flat.data[0]._id}`
+          textToCopy: `${process.env.REACT_APP_BASE_URL}/signup/${flat.data[0]._id}`
           // textToCopy: `https://wg-your-way.herokuapp.com/invite/${flat.data[0]._id}`
         });
       })
@@ -48,7 +48,6 @@ export default class Settings extends Component {
     console.log(this.props);
     return (
       <div className="invite-container">
-        
         <div className="invite-heading">
           <h1>You can invite your flatmates by sharing this link with them.</h1>
         </div>
@@ -66,7 +65,8 @@ export default class Settings extends Component {
           <div className="to-dashboard">
             <h1>BACK to your DASHBOARD</h1>
             <img
-              className="to-dashboard-arrow" alt=""
+              className="to-dashboard-arrow"
+              alt=""
               src={require("../images/right.png")}
             />{" "}
           </div>
