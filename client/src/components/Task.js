@@ -15,7 +15,7 @@ const Task = props => {
       <div style={{ display: "flex" ,justifyContent: "center" }}>
         <h2 onClick={handleClick}>{props.name}</h2>
         <img
-          id="remove"
+          id="remove" alt=""
           style={{ cursor: "pointer" }}
           src={require("../images/remove.png")}
           onClick={() => props.deleteTask(props.id)}

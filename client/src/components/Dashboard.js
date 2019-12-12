@@ -33,10 +33,10 @@ class Dashboard extends Component {
     axios
       .get("/api/dashboard")
       .then(response => {
-        // console.log("Das Beautiful Resposne", response.data);
-        const currentWeek = response.data.tasks[0].week.week;
-        const currentYear = response.data.tasks[0].week.year;
-        const weekRange = response.data.tasks[0].week.weekRange;
+        console.log("Das Beautiful Resposne", response.data);
+        const currentWeek = response.data.week[0].week;
+        const currentYear = response.data.week[0].year;
+        const weekRange = response.data.week[0].weekRange;
         this.setState(
           {
             allTasks: response.data.tasks,
@@ -197,15 +197,15 @@ class Dashboard extends Component {
             <Link to="/settings">
               <img
                 className="settings-img"
-                src={require("../images/settings.png")}
                 alt=""
+                src={require("../images/settings.png")}
               />
             </Link>
             <Link to="/" onClick={this.handleLogout}>
               <img
                 className="settings-img"
-                src={require("../images/logout.png")}
                 alt=""
+                src={require("../images/logout.png")}
               />
             </Link>
           </div>

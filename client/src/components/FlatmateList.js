@@ -39,6 +39,7 @@ const FlatmateList = props => {
             <div style={{ display: "flex", justifyContent: "center" }}>
               {t.finished ? (
                 <p
+                  key={t._id}
                   style={{ textDecoration: "line-through", color: "#98bc76" }}
                   onClick={() => removeTask(t._id)}
                 >
@@ -48,7 +49,9 @@ const FlatmateList = props => {
                 <p onClick={() => removeTask(t._id)}>{t.name}</p>
               )}
               <img
+                key={t._id}
                 id="check"
+                alt=""
                 src={require("../images/check.png")}
                 style={{ cursor: "pointer" }}
                 onClick={() => checkTask(t._id)}

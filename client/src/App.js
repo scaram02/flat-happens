@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import SignupFlatmate from "./components/SignupFlatmate";
 import Login from "./components/Login";

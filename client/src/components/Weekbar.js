@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Navbar as Nav } from "react-bootstrap";
 import "./Weekbar.css";
 
 class Weekbar extends Component {
@@ -28,7 +27,7 @@ class Weekbar extends Component {
               <div className="info">
                 <h1 id="flatname"> {this.props.flatInfo.name}</h1>
                 <h3 onClick={this.props.getData}>
-                 {this.props.currentInfo.weekRange}
+                  {this.props.currentInfo.weekRange}
                 </h3>
               </div>
               <div className="arrow">

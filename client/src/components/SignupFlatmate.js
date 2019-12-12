@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { referral } from "../services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
 import './Signup.css'
 
 class SignupFlatmate extends Component {
@@ -81,7 +80,7 @@ class SignupFlatmate extends Component {
            </div>
            <div>
              {this.state.error && (
-          <alert variant="danger">{this.state.error}</alert>
+          <alert variant="danger" className="alert">{this.state.error}</alert>
           )}
           </div>
           </div>

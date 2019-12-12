@@ -46,7 +46,7 @@ export default class Invite extends Component {
         <p className="invite-message">{this.state.message}</p>
         <Link to="/dashboard">
           <div className="to-dashboard">
-            <h1>to your dashboard here</h1>
+            <h1>To your dashboard</h1>
             <img
               className="to-dashboard-arrow"
               src={require("../images/right.png")}

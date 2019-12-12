@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Settings.css"
 
 export default class Settings extends Component {
   state = {
@@ -65,9 +66,8 @@ export default class Settings extends Component {
           <div className="to-dashboard">
             <h1>BACK to your DASHBOARD</h1>
             <img
-              className="to-dashboard-arrow"
+              className="to-dashboard-arrow" alt=""
               src={require("../images/right.png")}
-              alt=""
             />{" "}
           </div>
         </Link>

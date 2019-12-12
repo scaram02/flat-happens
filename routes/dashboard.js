@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
             .then(allTasks => {
               console.log(allTasks[0]);
 
-              res.json({ tasks: allTasks, flat: flatArray[0] });
+              res.json({ week: curWeek, tasks: allTasks, flat: flatArray[0] });
             });
         });
     }

@@ -88,7 +88,7 @@ export default class Flatform extends Component {
           <form onSubmit={this.handleSubmit}>
             <div className="label-container">
               <label>
-                <h2>Give your apartment a cool name:</h2>
+                <h2>Give your flat a cool name:</h2>
               </label>
             </div>
 
