@@ -31,8 +31,15 @@ form {
 }
 
 /* add new div for h1 here, child of header-container? if only I could do css */
-.teach-me-css-pls {
+.title h1 {
   margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.subtitle {
+  /* font-weight: bold; */
+  font-size: .9em;
 }
 
 .header-container {
@@ -58,28 +65,36 @@ form {
   justify-content: center;
 }
 
-.home-button-container {
+.home-button {
   display: flex;
   flex-direction: column;
   width: 50%;
-  background-color: rgba(238, 238, 69, 0.95);
-  padding-bottom: 3%;
+  /* background-color: white; */
   padding-top: 1%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   text-align: center;
-  margin-top: 3%;
-  border-radius: 5%;
+  margin-top: 2%;
 }
 
-.home-button {
+.home-button-container {
   display: flex;
   align-items: center;
   flex-direction: column;
+
 }
 
+
+.chalk-border {
+  border: 8px solid rgba(255,255,255,.8);
+  border-image: url("https://www.unicefusa.org/sites/default/files/answer-box.png") 20;
+}
+
+
+
 .button-links {
-  color: rgb(190, 0, 127);
+  color: white;
   font-size: 1.5em;
+  font-weight: bold
 }
 
 /*  but this is for all links so beware the nav */
@@ -89,5 +104,5 @@ a:hover {
 }
 
 .home-button-container:hover {
-  width: 55%;
+  /* width: 55%; */
 }
