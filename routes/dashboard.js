@@ -84,6 +84,16 @@ router.put("/check/:id", (req, res, next) => {
   });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  console.log("trzing to delete a task");
+  console.log(req.params.id);
+  Task.findByIdAndDelete(req.params.id).then(response => {
+    console.log(response);
+    res.json({ message: "Sucessfully deleted" });
+  });
+});
+// /api/dashboard/delete/${id}
+
 // router.get("/:taskId", (req, res, next) => {
 //   // id should be the id of the task which was onClicked to activate this put request
 //   const id = req.params.taskId;

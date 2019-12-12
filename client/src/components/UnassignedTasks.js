@@ -5,7 +5,7 @@ import "./UnassignedTasks.css";
 
 const UnassignedTasks = props => {
   // console.log("TASKS", props.tasks);
-
+  console.log(props);
   return (
     <div>
       <h1>Unassigned Tasks</h1>
@@ -19,6 +19,7 @@ const UnassignedTasks = props => {
               name={el.name}
               id={el._id}
               getData={props.getData}
+              deleteTask={props.deleteTask}
             />
           );
         })}
