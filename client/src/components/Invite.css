@@ -4,9 +4,46 @@
   background-size: cover;
   height: 100vh;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
+.invite-container a {
+  margin-top:auto;
+  margin-bottom:30px;
+}
 .invite-heading {
   padding: 10% 20% 0 20%;
   text-align: center;
+}
+.invite-button {
+  color: white;
+  margin: 0 auto;
+  background-color: rgb(115, 175, 157);
+  text-decoration: none;
+  width: 50%;
+  /* height: 10%; */
+  border: 2px rgb(115, 175, 157);
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+.invite-message {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2rem;
+  color: rgb(115, 175, 157)
+}
+.to-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 70px;
+}
+.to-dashboard-arrow {
+  width: 70px;
+  height: 50px;
+}
+.to-dashboard-arrow:hover {
+  width: 70px;
+  height: 50px;
+  color: rgb(115, 175, 157)
 }

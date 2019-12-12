@@ -30,20 +30,30 @@ export default class Invite extends Component {
   render() {
     return (
       <div className="invite-container">
+
         <div className="invite-heading">
-          <h1>
-            Your flat has been successfully created. You can invite your
-            flatmates by sharing this link with them.
-          </h1>
+          <h1>Your flat has been successfully created</h1>
         </div>
 
-        <button onClick={this.invite} style={{ cursor: "pointer" }} className="invite-button"> 
-          Share with your Flatmates
+        <button
+          onClick={this.invite}
+          style={{ cursor: "pointer" }}
+          className="invite-button"
+        >
+          Invite your flatmates
         </button>
-
-        <p style={{ textAlign: "center" }}>{this.state.message}</p>
-
-        <Link to="/dashboard">Go to your Dashboard</Link>
+        
+        <p className="invite-message">{this.state.message}</p>
+        <Link to="/dashboard">
+          <div className="to-dashboard">
+            <h1>to your dashboard here</h1>
+            <img
+              className="to-dashboard-arrow"
+              src={require("../images/right.png")}
+              alt=""
+            />{" "}
+          </div>
+        </Link>
       </div>
     );
   }

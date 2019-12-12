@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
 export default class Settings extends Component {
   state = {
@@ -26,11 +26,11 @@ export default class Settings extends Component {
     axios
       .get("/api/settings")
       .then(flat => {
-        console.log("THIS", flat.data[0]._id)
+        console.log("THIS", flat.data[0]._id);
         this.setState({
           flatId: flat.data[0]._id,
           textToCopy: `http://localhost:3000/signup/${flat.data[0]._id}`
-            // textToCopy: `https://wg-your-way.herokuapp.com/invite/${flat.data[0]._id}`
+          // textToCopy: `https://wg-your-way.herokuapp.com/invite/${flat.data[0]._id}`
         });
       })
       .catch(err => {
@@ -46,13 +46,31 @@ export default class Settings extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        You can invite your flatmates by sharing this link with them.
-        <button onClick={this.invite} style={{ cursor: "pointer" }}>
+      <div className="invite-container">
+        
+        <div className="invite-heading">
+          <h1>You can invite your flatmates by sharing this link with them.</h1>
+        </div>
+
+        <button
+          onClick={this.invite}
+          style={{ cursor: "pointer" }}
+          className="invite-button"
+        >
           Share with your Flatmates
         </button>
-               <p style={{ textAlign: "center" }}>{this.state.message}</p>
-        <Link to="/dashboard">BACK to your DASHBOARD</Link>
+
+        <p className="invite-message">{this.state.message}</p>
+        <Link to="/dashboard">
+          <div className="to-dashboard">
+            <h1>BACK to your DASHBOARD</h1>
+            <img
+              className="to-dashboard-arrow"
+              src={require("../images/right.png")}
+              alt=""
+            />{" "}
+          </div>
+        </Link>
       </div>
     );
   }
