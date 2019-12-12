@@ -27,6 +27,7 @@
   font-weight: bold;
   text-decoration: underline;
   text-underline-position: under;
+  
 }
 
 .field-container {
@@ -68,6 +69,12 @@
   font-size: 1.8em;
   font-weight: bold;
   margin-top: 27%;
+  padding-top: 2%
+}
+
+.signup-button:hover {
+  color: rgb(120, 206, 180);
+  text-decoration: none;
 }
 
 .chalk-border {
@@ -75,3 +82,5 @@
   border-image: url("https://www.unicefusa.org/sites/default/files/answer-box.png")
     20;
 }
+
+
