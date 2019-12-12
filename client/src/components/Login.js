@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { login } from "../services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
+import "./Signup.css";
 
 class Login extends Component {
   state = {
@@ -36,34 +36,56 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Log in</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
-              type="text"
-              name="username"
-              id="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              id="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          {this.state.error && (
-            <Alert variant="danger">{this.state.error}</Alert>
-          )}
-          <Button type="submit">Log in</Button>
-        </Form>
+      <div className="chalkboard-container">
+        <div className="signup-form-box">
+          <div>
+            <h2 className="sign-up-header">Log in</h2>
+          </div>
+
+          <form onSubmit={this.handleSubmit}>
+            <div className="field-container">
+              <div className="fields">
+                <label htmlFor="username" className="signup-label">
+                  Username:{" "}
+                </label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                />
+              </div>
+
+              <div className="fields">
+                <label htmlFor="password">Password: </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+              </div>
+
+              <div>
+                <button className="signup-button chalk-border" type="submit">
+                  Log in
+                </button>
+              </div>
+
+              <div>
+                {this.state.error && (
+                  <alert className="alert" variant="danger">
+                    {this.state.error}
+                  </alert>
+                )}
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

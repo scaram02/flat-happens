@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Form, Button } from "react-bootstrap";
+// import { Form } from "react-bootstrap";
 import axios from "axios";
 import './flatform.css'
 
-const Checkbox = props => <input type="checkbox" {...props} />;
+// const Checkbox = props => <input type="checkbox" {...props} />;
 
 export default class Flatform extends Component {
   state = {
@@ -40,7 +40,6 @@ export default class Flatform extends Component {
       weeklyTasks: this.state.weeklyTasks.concat(task)
     });
   };
-
 
   handleCheckboxFourChange = task => {
     console.log("here you have multiple things checked", task);
@@ -80,60 +79,89 @@ export default class Flatform extends Component {
   render() {
     // console.log("tHE FLATFORM IS WORKING", this.props);
     return (
-      <div>
-        <h2>Tell us about your flat </h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label>Name your apartment:</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <h2>Choose your weekly tasks:</h2>
-          <label>
-            <Checkbox
-              checked={this.state.checkedOne}
-              onChange={() => this.handleCheckboxOneChange("Clean the kitchen")}
-            />
-            <span>Clean the kitchen</span>
-          </label>
+      <div className="flatform-container">
 
-          <label>
-            <Checkbox
-              checked={this.state.checkedTwo}
-              onChange={() =>
-                this.handleCheckboxTwoChange("Clean the bathroom")
-              }
-            />
-            <span>Clean the bathroom</span>
-          </label>
+        <div className="flatform-title">
+        <h1>Set up your shared flat!</h1>
+        </div>
 
-          <label>
-            <Checkbox
-              checked={this.state.checkedThree}
-              onChange={() =>
-                this.handleCheckboxThreeChange("Buy toiletries")
-              }
-            />
-            <span>Buy toiletries</span>
-          </label>
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit}>
 
-          <label>
-            <Checkbox
-              checked={this.state.checkedFour}
-              onChange={() =>
-                this.handleCheckboxFourChange("Take out the garbage")
-              }
-            />
-            <span>Take out the garbage</span>
-          </label>
+              <div className="label-container">
+                <label>
+                <h2>Give your apartment a cool name:</h2>
+                </label>
+                </div>
+                
+                <div className="input-container">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Add the name of your flat here"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </div>
+            <div className="form-title-2">
+               <h2>Choose your weekly tasks:</h2>
+            </div>
 
+            <div className="checkbox-container">
+              <div className="checkboxes">
+                <label>
+                  <input type="checkbox"
+                    checked={this.state.checkedOne}
+                    onChange={() =>
+                      this.handleCheckboxOneChange("Clean the kitchen")
+                    }
+                  />
+                  <span>Clean the kitchen</span>
+                </label>
+              </div>
+              
 
-          <Button className="button" type="submit">Create your flat!</Button>
-        </Form>
+              <div className="checkboxes">
+                <label>
+                  <input type="checkbox"
+                    checked={this.state.checkedTwo}
+                    onChange={() =>
+                      this.handleCheckboxTwoChange("Clean the bathroom")
+                    }
+                  />
+                  <span>Clean the bathroom</span>
+                </label>
+              </div>
+
+              <div className="checkboxes">
+                <label>
+                  <input type="checkbox"
+                    checked={this.state.checkedThree}
+                    onChange={() =>
+                      this.handleCheckboxThreeChange("Buy toiletries")
+                    }
+                  />
+                  <span>Buy toiletries</span>
+                </label>
+              </div>
+
+              <div className="checkboxes">
+                <label>
+                  <input type="checkbox"
+                    checked={this.state.checkedFour}
+                    onChange={() =>
+                      this.handleCheckboxFourChange("Take out the garbage")
+                    }
+                  />
+                  <span>Take out the garbage</span>
+                </label>
+              </div>
+            </div>
+            <button className="button" type="submit">
+              Create your flat!
+            </button>
+          </form>
+        </div>
       </div>
     );
   }

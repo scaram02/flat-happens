@@ -14,11 +14,11 @@ router.get("/:week/:year", (req, res) => {
 
   Week.find({ $and: [{ week: week }, { year: year }] }).then(weekWeWant => {
     // console.log(weekWeWant);
-    Flat.find({ user: "5df0bc3f3f56e20dc2ec29ec" })
+    Flat.find({ user: req.user._id })
       // Flat.find({ user: req.user._id })
       .populate("user")
       .then(flatArray => {
-        console.log(flatArray[0]);
+        console.log(flatArray);
         Task.find({
           $and: [{ flat: flatArray[0]._id }, { week: weekWeWant[0]._id }]
         })
@@ -83,6 +83,28 @@ router.put("/check/:id", (req, res, next) => {
       });
   });
 });
+
+router.delete("/delete/:id", (req, res) => {
+  console.log("trzing to delete a task");
+  console.log(req.params.id);
+  Task.findByIdAndDelete(req.params.id).then(response => {
+    console.log(response);
+    res.json({ message: "Sucessfully deleted" });
+  });
+});
+// /api/dashboard/delete/${id}
+
+// router.get("/:taskId", (req, res, next) => {
+//   // id should be the id of the task which was onClicked to activate this put request
+//   const id = req.params.taskId;
+//   Task.findByIdAndDelete(id, { user: req.user._id }, { new: true })
+//     .then(task => {
+//       res.json(task);
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// });
 
 // assign the task to the logged in user
 router.get("/:taskId", (req, res, next) => {

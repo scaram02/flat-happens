@@ -56,11 +56,17 @@ class App extends React.Component {
             render={props => <Invite {...props} user={this.state.user} />}
           />
           <>
-            <Navbar user={this.state.user} clearUser={this.setUser} />
+            {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
             <Route
               exact
               path="/dashboard"
-              render={props => <Dashboard {...props} user={this.state.user} />}
+              render={props => (
+                <Dashboard
+                  {...props}
+                  user={this.state.user}
+                  clearUser={this.setUser}
+                />
+              )}
             />
             <Route
               exact

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./TaskForm.css";
 
 export class TaskForm extends Component {
   state = {
@@ -19,6 +20,9 @@ export class TaskForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const name = this.state.name;
+    this.setState({
+      name: ""
+    })
 
     axios
       .post("/api/dashboard", {
@@ -35,16 +39,21 @@ export class TaskForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="taskform-container">
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Add a task</label>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit the task</button>
+          <div className="label-container">
+            <label htmlFor="name"></label>
+          </div>
+          <div className="input-container">
+            <input
+              type="text"
+              name="name"
+              placeholder="Add a task here"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
+          <button type="submit"><img className="icon" src={require("../images/plus.png")} alt=""/></button>
         </form>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Invite.css";
 
 export default class Invite extends Component {
   state = {
@@ -28,14 +29,21 @@ export default class Invite extends Component {
 
   render() {
     return (
-      <div>
-        Your flat has been successfully created. You can invite your flatmates
-        by sharing this link with them.
-        <button onClick={this.invite} style={{ cursor: "pointer" }}>
+      <div className="invite-container">
+        <div className="invite-heading">
+          <h1>
+            Your flat has been successfully created. You can invite your
+            flatmates by sharing this link with them.
+          </h1>
+        </div>
+
+        <button onClick={this.invite} style={{ cursor: "pointer" }} className="invite-button"> 
           Share with your Flatmates
         </button>
+
         <p style={{ textAlign: "center" }}>{this.state.message}</p>
-        <Link to="/dashboard">GO to your DASHBOARD</Link>
+
+        <Link to="/dashboard">Go to your Dashboard</Link>
       </div>
     );
   }

@@ -1,0 +1,30 @@
+.dashboard-container {
+  background-image: url("../images/blackboard.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 60px;
+  /* width: 100%; */
+  /* margin-left: 60px;
+margin-right: 60px; */
+}
+

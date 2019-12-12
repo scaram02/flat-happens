@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { signup } from "../services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
-import './Signup.css'
+import "./Signup.css";
 
 class Signup extends Component {
   state = {
@@ -37,35 +36,64 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Sign up</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
-              type="text"
-              name="username"
-              id="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              id="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          {this.state.error && (
-            <Alert variant="danger">{this.state.error}</Alert>
-          )}
-          <Button className='signup-button' type="submit">Sign up</Button>
-        </Form>
+      <div className="chalkboard-container">
+
+        <div className="signup-form-box">
+
+        <div>
+          <h2 className="sign-up-header">Sign up</h2>
+          </div>
+
+        <form onSubmit={this.handleSubmit}>
+          
+          <div className="field-container">
+            <div className="fields">
+              <label htmlFor="username" className="signup-label">
+                Username:{" "}
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="fields">
+              <label htmlFor="password" className="signup-label">
+                Password:{" "}
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div>
+              <button className="signup-button chalk-border" type="submit">
+                Sign up
+              </button>
+            </div>
+
+            <div>
+              {this.state.error && (
+                <alert className="alert" variant="danger">
+                  {this.state.error}
+                </alert>
+              )}
+            </div>
+
+          </div>
+        </form>
+        </div>
       </div>
+
     );
   }
 }

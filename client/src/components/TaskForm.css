@@ -1,0 +1,44 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-container input {
+  background: transparent;
+  border: none;
+  height: 40px;
+  width: 250px;
+  text-decoration: none;
+}
+
+.label-container {
+  font-size: 2rem;
+}
+
+.input-container {
+  font-size: 2rem;
+  size: auto;
+}
+
+.taskform-container button {
+  background: transparent;
+  border: none;
+}
+
+.input-container input:focus {
+  outline: none;
+  font-style: italic;
+}
+
+::placeholder {
+  color: rgba(250, 250, 250, 0.5);
+  font-size: 30px;
+  text-align: left;
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.icon {
+  width: 40px;
+}

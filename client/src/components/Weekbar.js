@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar as Nav } from "react-bootstrap";
+import "./Weekbar.css";
 
 class Weekbar extends Component {
   state = {
@@ -12,27 +13,42 @@ class Weekbar extends Component {
   render() {
     console.log(this.props.currentInfo);
     return (
-      <Nav className="nav" bg="basic">
+      <div>
         {this.props.user ? (
           <React.Fragment>
-            {/* <Link to="/">Last Week</Link> */}
-            <h2 onClick={this.props.previousWeek}>Last week</h2>
-            <h1 onClick={this.props.getData}>
-              This week {this.props.currentInfo.currentWeek}
-            </h1>
-            <h2 onClick={this.props.nextWeek}>Next Week</h2>
-            {/* <Link to="/">Next Week</Link> */}
+            <div className="weekbar-container">
+              <div className="arrow">
+                <img
+                  className="arrow-img"
+                  src={require("../images/left.png")}
+                  alt=""
+                  onClick={this.props.previousWeek}
+                />
+              </div>
+              <div className="info">
+                <h1 id="flatname"> {this.props.flatInfo.name}</h1>
+                <h3 onClick={this.props.getData}>
+                 {this.props.currentInfo.weekRange}
+                </h3>
+              </div>
+              <div className="arrow">
+                <img
+                  className="arrow-img"
+                  src={require("../images/right.png")}
+                  alt=""
+                  onClick={this.props.nextWeek}
+                />
+              </div>
+            </div>
           </React.Fragment>
         ) : (
           <></>
         )}
-        {this.state.currentWeek}
-        <h3>{this.props.currentInfo.currentYear}</h3>
-        <br />
-        <div>{this.props.currentInfo.weekRange}</div>
-        <h1>Ma flat</h1>
-        <div>{this.props.flatInfo.name}</div>
-      </Nav>
+        {/* {this.state.currentWeek}
+            {this.props.currentInfo.currentYear}
+            {this.props.currentInfo.currentWeek} 
+            {this.props.flatInfo.name}</div> */}
+      </div>
     );
   }
 }
