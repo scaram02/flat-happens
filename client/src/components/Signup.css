@@ -21,10 +21,12 @@
 
 .sign-up-header {
   height: 5%;
-  padding-bottom: 15%;
+  padding-bottom: 18%;
   /* padding-right: 5%; */
   font-size: 2.5rem;
-font-weight: bold;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-position: under;
 }
 
 .field-container {
@@ -32,7 +34,7 @@ font-weight: bold;
   flex-direction: column;
   height: 10%;
   font-size: 2rem;
-  margin-left: 10%;
+  margin-left: 18%;
 }
 
 .fields input {
@@ -46,7 +48,7 @@ font-weight: bold;
   background: transparent;
   text-decoration: none;
   border: none;
-} 
+}
 
 .fields input:focus {
   outline: none;
@@ -65,11 +67,11 @@ font-weight: bold;
   color: white;
   font-size: 1.8em;
   font-weight: bold;
-  margin-top: 27%
+  margin-top: 27%;
 }
 
 .chalk-border {
-  border: 8px solid rgba(255,255,255,.8);
-  border-image: url("https://www.unicefusa.org/sites/default/files/answer-box.png") 20;
+  border: 8px solid rgba(255, 255, 255, 0.8);
+  border-image: url("https://www.unicefusa.org/sites/default/files/answer-box.png")
+    20;
 }
-
