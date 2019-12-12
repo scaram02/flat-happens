@@ -66,11 +66,11 @@ font-style: italic;
 .form-container button {
   color: white;
   margin: 0 auto;
-  background-color: rgba(202, 62, 144, 0.8);
+  background-color: rgb(120, 206, 180);
   text-decoration: none;
   width: 50%;
   height: 10%;
-  border: 2px rgb(202, 62, 144);
+  border: 2px rgb(120, 206, 180);
   font-size: 1.8rem;
   margin-top: 20px;
 }
