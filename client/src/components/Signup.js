@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { signup } from "../services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import './Signup.css'
 
 class Signup extends Component {
@@ -38,14 +38,14 @@ class Signup extends Component {
   render() {
     return (
       <div className="chalkboard-container">
-        <div className='box'>
-        <div>
-        <h2>Sign up</h2>
-        </div>
-        <Form onSubmit={this.handleSubmit}>
-          <div className="fields">
+        
+        
+        
+        <form className="form" onSubmit={this.handleSubmit}>
+          <h2 className="sign-up-header">Sign up</h2>
             {/* <label htmlFor="username">Username: </label> */}
-            
+          <div className="field-container">
+          <div className="fields"> 
             <input
               type="text"
               name="username"
@@ -54,10 +54,9 @@ class Signup extends Component {
               value={this.state.username}
               onChange={this.handleChange}
             />
-            </div>
-          <div>
+          </div> 
             {/* <label htmlFor="password">Password: </label> */}
-            </div>
+    
             <div className="fields">
             <input
               type="password"
@@ -67,14 +66,16 @@ class Signup extends Component {
               value={this.state.password}
               onChange={this.handleChange}
             />
-        </div>
+          </div>
+          </div>
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button className='signup-button' type="submit">Sign up</Button>
-        </Form>
+
+          <button className='signup-button' type="submit">Sign up</button>
+        </form>
     </div>
-      </div>
+
     );
   }
 }

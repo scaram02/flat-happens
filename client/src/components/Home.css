@@ -9,7 +9,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -26,11 +25,15 @@ body {
   max-width: 100%;
 }
 
+form {
+  display: flex;
+  flex-direction: row;
+}
+
 /* add new div for h1 here, child of header-container? if only I could do css */
 .teach-me-css-pls {
   margin-bottom: 5%;
 }
-
 
 .header-container {
   /* color: rgb(190, 0, 127); */

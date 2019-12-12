@@ -1,45 +1,46 @@
-.signup-button {
-  background-color: rgb(190, 0, 127);
-  border-color: rgb(190, 0, 127)
-}
-
-.signup-button:hover {
-  background-color: rgb(151, 204, 199);
-  border-color: rgb(151, 204, 199)
-}
-
 .chalkboard-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   background-image: url("../images/chalkboard-kitchen.png");
   background-repeat: no-repeat;
   background-size: cover;
-  justify-content: center;
+  /* justify-content: center; */
   background-position: center;
   height: 100vh;
   max-width: 100%;
   
 }
 
-.box {
-  font-size: 2.5em;
-  /* width: 85%; */
-  /* margin-top: 1em; */
-  /* text-align: center; */
-  margin-bottom: 0.4em;
-  /* text-align: center; */
-  margin-left: 5%;
-  margin-right: 5%;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20%;
+  margin-top: 25%
 }
 
-/* fields input */
-.fields  {
+.sign-up-header {
+  height: 5%
+}
 
-    width: 25%;
+.field-container {
+  display: flex;
+  flex-direction: row;
+  height: 10%
+}
+
+.fields input {
+    width: 55%;
     padding-bottom: 3%;
     padding-top: 1%;
     margin-bottom: 3%;
     /* text-align: center; */
-    /* margin-top: 3%; */
     border-radius: 5%;
+    background: transparent;
+    border: none
+  }
+
+  .signup-button {
+    height: 5%;
+    background-color: green;
   }
