@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./FlatmateList.css";
+import "./Task.css";
 
 const Task = props => {
   const handleClick = () => {
@@ -12,10 +12,10 @@ const Task = props => {
 
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex" ,justifyContent: "center" }}>
         <h2 onClick={handleClick}>{props.name}</h2>
         <img
-          id="check"
+          id="remove"
           style={{ cursor: "pointer" }}
           src={require("../images/remove.png")}
           onClick={() => props.deleteTask(props.id)}

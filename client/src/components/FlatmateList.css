@@ -1,4 +1,12 @@
 #check {
   width: 40px;
   height: 35px;
+  margin-left: 10px
+}
+
+.bottom-chalk-border {
+  text-decoration-line: underline;
+  font-weight: bold;
+  text-underline-position: under;
+  margin-bottom: 30px;
 }

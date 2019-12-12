@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./FlatmateList.css";
+
 // import Flatmate from "./Flatmate";
 
 const FlatmateList = props => {
@@ -35,7 +36,7 @@ const FlatmateList = props => {
         // console.log(t);
         return (
           <>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               {t.finished ? (
                 <p
                   style={{ textDecoration: "line-through", color: "#98bc76" }}
@@ -58,7 +59,7 @@ const FlatmateList = props => {
       });
     return (
       <div>
-        <h1> {x.username} </h1>
+        <h1 className="bottom-chalk-border"> {x.username} </h1>
         <h2>{tasks}</h2>
       </div>
     );

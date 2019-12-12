@@ -17,7 +17,7 @@ class Weekbar extends Component {
         {this.props.user ? (
           <React.Fragment>
             <div className="weekbar-container">
-              <div>
+              <div className="arrow">
                 <img
                   className="arrow-img"
                   src={require("../images/left.png")}
@@ -25,12 +25,13 @@ class Weekbar extends Component {
                   onClick={this.props.previousWeek}
                 />
               </div>
-              <div>
-                <h1 onClick={this.props.getData}>
-                  {this.props.currentInfo.weekRange}
-                </h1>
+              <div className="info">
+                <h1 id="flatname"> {this.props.flatInfo.name}</h1>
+                <h3 onClick={this.props.getData}>
+                 {this.props.currentInfo.weekRange}
+                </h3>
               </div>
-              <div>
+              <div className="arrow">
                 <img
                   className="arrow-img"
                   src={require("../images/right.png")}
