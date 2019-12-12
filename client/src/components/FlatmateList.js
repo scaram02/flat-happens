@@ -49,6 +49,7 @@ const FlatmateList = props => {
               <img
                 id="check"
                 src={require("../images/check.png")}
+                style={{ cursor: "pointer" }}
                 onClick={() => checkTask(t._id)}
               />
             </div>

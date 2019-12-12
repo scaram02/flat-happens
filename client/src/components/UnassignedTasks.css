@@ -1,3 +1,9 @@
 .unassigned-tasks >* {
   color: #e9658f !important;
 }
+
+.bottom-chalk-border {
+  font-weight: bold;
+  border-bottom: 8px solid rgba(255,255,255,.8);
+  border-image: url("https://www.unicefusa.org/sites/default/files/answer-box.png") 20;
+}

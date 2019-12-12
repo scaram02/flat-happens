@@ -8,7 +8,7 @@ const UnassignedTasks = props => {
   console.log(props);
   return (
     <div>
-      <h1>Unassigned Tasks</h1>
+      <h1 className="bottom-chalk-border">Unassigned Tasks</h1>
       <div className="unassigned-tasks">
         {props.tasks.map(el => {
           //return <h2> {el.name} </h2>;
