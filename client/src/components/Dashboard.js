@@ -3,7 +3,7 @@ import axios from "axios";
 import Weekbar from "./Weekbar";
 import UnassignedTasks from "./UnassignedTasks";
 import FlatmateList from "./FlatmateList";
-import './Dashboard.css'
+import "./Dashboard.css";
 
 class Dashboard extends Component {
   state = {
@@ -139,6 +139,14 @@ class Dashboard extends Component {
     }
   };
 
+  deleteTask = id => {
+    console.log(`${id} is about to be deleted`);
+    axios.delete(`/api/dashboard/delete/${id}`).then(response => {
+      console.log(response);
+      this.getData();
+    });
+  };
+
   render() {
     const unnassignedTasks =
       this.state.allTasks && this.state.allTasks.filter(x => x.user === null);
@@ -157,12 +165,16 @@ class Dashboard extends Component {
           getData={this.getData}
         />
         <div className="dashboard-tasks">
-        <UnassignedTasks tasks={unnassignedTasks} getData={this.getData} />
-        <FlatmateList
-          flatmate={this.state.flatmates}
-          tasks={assignedTasks}
-          getData={this.getData}
-        />
+          <UnassignedTasks
+            tasks={unnassignedTasks}
+            getData={this.getData}
+            deleteTask={this.deleteTask}
+          />
+          <FlatmateList
+            flatmate={this.state.flatmates}
+            tasks={assignedTasks}
+            getData={this.getData}
+          />
         </div>
       </div>
     );

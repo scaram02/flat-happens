@@ -1,24 +1,29 @@
 import React from "react";
 import axios from "axios";
+import './FlatmateList.css'
 
-class Task extends React.Component {
-  state = {
-    unassigned: true
-  };
-
-  // still in progress
-
-  handleClick = () => {
-    axios.get(`/api/dashboard/${this.props.id}`).then(response => {
+const Task = props => {
+  const handleClick = () => {
+    axios.get(`/api/dashboard/${props.id}`).then(response => {
       console.log("this is the Axios response: ", response);
-      this.props.getData();
+      props.getData();
     });
   };
 
-  render() {
-    // console.log(this.props);
-    return <h2 onClick={this.handleClick}>{this.props.name}</h2>;
-  }
-}
+  return (
+    <>
+    <div></div>
+      <h2 onClick={handleClick}>{props.name}</h2>
+      
+
+      <img
+                id="check"
+                   style={{ cursor: "pointer" }}
+                src={require("../images/remove.png")}
+                onClick={() => props.deleteTask(props.id)}
+              />
+    </>
+  );
+};
 
 export default Task;

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./FlatmateList.css"
+import "./FlatmateList.css";
 // import Flatmate from "./Flatmate";
 
 const FlatmateList = props => {
@@ -35,17 +35,23 @@ const FlatmateList = props => {
         // console.log(t);
         return (
           <>
-            {t.finished ? (
-              <li
-                style={{ textDecoration: "line-through", color: "#98bc76" }}
-                onClick={() => removeTask(t._id)}
-              >
-                {t.name}
-              </li>
-            ) : (
-              <li onClick={() => removeTask(t._id)}>{t.name}</li>
-            )}
-            <img id="check" src={require("../images/check.png")} onClick={() => checkTask(t._id)}/>
+            <div style={{ display: "flex" }}>
+              {t.finished ? (
+                <p
+                  style={{ textDecoration: "line-through", color: "#98bc76" }}
+                  onClick={() => removeTask(t._id)}
+                >
+                  {t.name}
+                </p>
+              ) : (
+                <p onClick={() => removeTask(t._id)}>{t.name}</p>
+              )}
+              <img
+                id="check"
+                src={require("../images/check.png")}
+                onClick={() => checkTask(t._id)}
+              />
+            </div>
           </>
         );
       });
@@ -57,11 +63,7 @@ const FlatmateList = props => {
     );
   });
 
-  return (
-    <div>
-      {flatmate}
-    </div>
-  );
+  return <div>{flatmate}</div>;
 };
 
 export default FlatmateList;
