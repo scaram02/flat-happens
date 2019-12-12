@@ -45,34 +45,48 @@ class SignupFlatmate extends Component {
 
   render() {
     return (
+      <div className="chalkboard-container">
+
+        <div className="signup-form-box">
+
       <div>
-        <h2>Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
+        <h2 className="sign-up-header">Signup</h2>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+        <div className="field-container">
+            <div className="fields">
+            <label htmlFor="username">Username: </label>
+            <input
               type="text"
               name="username"
               id="username"
+              placeholder="username"
               value={this.state.username}
               onChange={this.handleChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control
+          </div>
+          <div className="fields">
+            <label htmlFor="password">Password: </label>
+            <input
               type="password"
               name="password"
               id="password"
+              placeholder="password"
               value={this.state.password}
               onChange={this.handleChange}
-            />
-          </Form.Group>
-          {this.state.error && (
-            <Alert variant="danger">{this.state.error}</Alert>
+            /> 
+            </div>
+           <div>
+          <button className='signup-button chalk-border' type="submit">Sign up</button>
+           </div>
+           <div>
+             {this.state.error && (
+          <alert variant="danger">{this.state.error}</alert>
           )}
-          <Button className='signup-button' type="submit">Sign up</Button>
-        </Form>
+          </div>
+          </div>
+        </form>
+      </div>
       </div>
     );
   }
