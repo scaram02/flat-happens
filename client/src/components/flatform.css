@@ -73,8 +73,8 @@ font-style: italic;
   align-items: center;
 }
 
-.checkboxes label {
-  margin-left: 20px;
+.checkboxes input {
+  margin-right: 20px;
 }
 
 .form-container button {
@@ -91,4 +91,9 @@ font-style: italic;
 
 .form-container button:focus {
   outline: none;
+}
+
+input[type=checkbox] {
+  height: 20px;
+  width: 20px;
 }

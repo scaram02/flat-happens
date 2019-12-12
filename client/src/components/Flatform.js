@@ -107,47 +107,56 @@ export default class Flatform extends Component {
 
             <div className="checkbox-container">
               <div className="checkboxes">
-                <input
-                  type="checkbox"
-                  checked={this.state.checkedOne}
-                  onChange={() =>
-                    this.handleCheckboxOneChange("Clean the kitchen")
-                  }
-                />
-                <label>Clean the kitchen</label>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={this.state.checkedOne}
+                    onChange={() =>
+                      this.handleCheckboxOneChange("Clean the kitchen")
+                    }
+                  />
+                  Clean the kitchen
+                </label>
               </div>
 
               <div className="checkboxes">
-                <input
-                  type="checkbox"
-                  checked={this.state.checkedTwo}
-                  onChange={() =>
-                    this.handleCheckboxTwoChange("Clean the bathroom")
-                  }
-                />
-                <label>Clean the bathroom</label>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={this.state.checkedTwo}
+                    onChange={() =>
+                      this.handleCheckboxTwoChange("Clean the bathroom")
+                    }
+                  />
+                  Clean the bathroom
+                </label>
               </div>
 
               <div className="checkboxes">
-                <input
-                  type="checkbox"
-                  checked={this.state.checkedThree}
-                  onChange={() =>
-                    this.handleCheckboxThreeChange("Buy toiletries")
-                  }
-                />
-                <label>Buy toiletries</label>
+                <label>
+                  {" "}
+                  <input
+                    type="checkbox"
+                    checked={this.state.checkedThree}
+                    onChange={() =>
+                      this.handleCheckboxThreeChange("Buy toiletries")
+                    }
+                  />
+                  Buy toiletries
+                </label>
               </div>
 
               <div className="checkboxes">
-                <input
-                  type="checkbox"
-                  checked={this.state.checkedFour}
-                  onChange={() =>
-                    this.handleCheckboxFourChange("Take out the garbage")
-                  }
-                />
-                <label>Take out the garbage</label>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={this.state.checkedFour}
+                    onChange={() =>
+                      this.handleCheckboxFourChange("Take out the garbage")
+                    }
+                  />
+                  Take out the garbage
+                </label>
               </div>
             </div>
 
