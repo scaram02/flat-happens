@@ -79,7 +79,7 @@
 }
 
 .signup-button:hover {
-  color: rgb(120, 206, 180);
+  color: rgb(115, 175, 157);
   text-decoration: none;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .alert {
-  background-color: rgba(139, 241, 210, 0.938);
+  background-color: rgba(115, 175, 157);
   display: flex;
   margin-top: 4.2%;
   padding-left: 5vw;

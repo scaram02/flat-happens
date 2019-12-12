@@ -1,5 +1,5 @@
 .invite-container {
-  background-image: url("../images/blackboard.jpg");
+  background-image: url("../images/blackboard-copy.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -26,6 +26,10 @@
   font-size: 1.8rem;
   margin-top: 20px;
 }
+.invite-button:focus {
+  outline: none;
+}
+
 .invite-message {
   text-align: center;
   margin-top: 30px;
