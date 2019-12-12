@@ -9,23 +9,25 @@ const UnassignedTasks = props => {
   return (
     <div>
       <h1 className="bottom-chalk-border">Unassigned Tasks</h1>
-      <div className="unassigned-tasks">
+      
         {props.tasks.map(el => {
           //return <h2> {el.name} </h2>;
           return (
-            <Task
-              key={el._id}
-              task={el}
-              name={el.name}
-              id={el._id}
-              getData={props.getData}
-              deleteTask={props.deleteTask}
-            />
+            <div>
+              <Task
+                key={el._id}
+                task={el}
+                name={el.name}
+                id={el._id}
+                getData={props.getData}
+                deleteTask={props.deleteTask}
+              />
+            </div>
           );
         })}
         <TaskForm getData={props.getData} />
       </div>
-    </div>
+
   );
 };
 

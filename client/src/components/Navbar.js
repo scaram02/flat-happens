@@ -13,7 +13,7 @@ const Navbar = props => {
   };
 
   return (
-    <Nav className="navbar-container" bg="basic">
+    <Nav className="navbar-container">
       {props.user ? (
         <>
           <div>
@@ -24,7 +24,7 @@ const Navbar = props => {
               Log out
             </Link>
             <Link to="/settings">
-              <img className="settings-img" src={require("../images/settings.jpg")} alt="" />
+              <img className="settings-img" src={require("../images/settings.png")} alt="" />
             </Link>
           </div>
         </>

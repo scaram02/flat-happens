@@ -2,3 +2,10 @@
   width: 40px;
   height: 35px;
 }
+
+.bottom-chalk-border {
+  text-decoration-line: underline;
+  font-weight: bold;
+  text-underline-position: under;
+  margin-bottom: 30px;
+}

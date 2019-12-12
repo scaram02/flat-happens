@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Weekbar from "./Weekbar";
 import UnassignedTasks from "./UnassignedTasks";
 import FlatmateList from "./FlatmateList";
+import { logout } from "../services/auth";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
@@ -17,6 +19,12 @@ class Dashboard extends Component {
     thisWeekTask: [],
     startWeek: null,
     startYear: null
+  };
+
+  handleLogout = () => {
+    //
+    logout();
+    this.props.clearUser(null);
   };
 
   getData = () => {
@@ -156,25 +164,51 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-container">
         {/* <Navbar user={this.state.user} clearUser={this.setUser} /> */}
-        <Weekbar
-          currentInfo={this.state}
-          flatInfo={this.state.flatInfo}
-          user={this.state.user}
-          previousWeek={this.previousWeek}
-          nextWeek={this.nextWeek}
-          getData={this.getData}
-        />
-        <div className="dashboard-tasks">
-          <UnassignedTasks
-            tasks={unnassignedTasks}
-            getData={this.getData}
-            deleteTask={this.deleteTask}
-          />
-          <FlatmateList
-            flatmate={this.state.flatmates}
-            tasks={assignedTasks}
-            getData={this.getData}
-          />
+        <div className="top-part">
+          <div>
+            <Weekbar
+              currentInfo={this.state}
+              flatInfo={this.state.flatInfo}
+              user={this.state.user}
+              previousWeek={this.previousWeek}
+              nextWeek={this.nextWeek}
+              getData={this.getData}
+            />
+          </div>
+          <div className="tasks-container">
+            <div className="unassigned-tasks">
+              <UnassignedTasks
+                tasks={unnassignedTasks}
+                getData={this.getData}
+                deleteTask={this.deleteTask}
+              />
+            </div>
+            <div className="assigned-tasks">
+              <FlatmateList
+                flatmate={this.state.flatmates}
+                tasks={assignedTasks}
+                getData={this.getData}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="bottom-part">
+          <div className="settings">
+            <Link to="/settings">
+              <img
+                className="settings-img"
+                src={require("../images/settings.png")}
+                alt=""
+              />
+            </Link>
+            <Link to="/" onClick={this.handleLogout}>
+              <img
+                className="settings-img"
+                src={require("../images/logout.png")}
+                alt=""
+              />
+            </Link>
+          </div>
         </div>
       </div>
     );
