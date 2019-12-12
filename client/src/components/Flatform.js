@@ -90,7 +90,7 @@ export default class Flatform extends Component {
 
               <div className="label-container">
                 <label>
-                  <h2>Give your apartment a cool name:</h2>
+                <h2>Give your apartment a cool name:</h2>
                 </label>
                 </div>
                 
