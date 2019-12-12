@@ -119,6 +119,7 @@ export default class Flatform extends Component {
                   <span>Clean the kitchen</span>
                 </label>
               </div>
+              
 
               <div className="checkboxes">
                 <label>
