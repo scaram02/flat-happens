@@ -15,7 +15,7 @@
   justify-content: space-evenly;
   margin-top: 30px;
   text-align: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .settings {

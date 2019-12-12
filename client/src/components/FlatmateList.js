@@ -36,7 +36,7 @@ const FlatmateList = props => {
         // console.log(t);
         return (
           <>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               {t.finished ? (
                 <p
                   style={{ textDecoration: "line-through", color: "#98bc76" }}

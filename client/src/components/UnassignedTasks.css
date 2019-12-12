@@ -1,10 +1,12 @@
-.unassigned-tasks >* {
- text-align: center;
-}
+/* .unassigned-tasks {
+  display: flex;
+align-items: center;
+  text-align: center;
+} */
 
-.bottom-chalk-border {
+/* .bottom-chalk-border {
   text-decoration-line: underline;
   font-weight: bold;
   text-underline-position: under;
   margin-bottom: 30px;
-}
+} */
